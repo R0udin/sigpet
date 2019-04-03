@@ -1,4 +1,5 @@
 <?php
+require 'cliente.php';
 class ClientesController extends Controller
 {
     /**
