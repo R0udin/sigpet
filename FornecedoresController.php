@@ -1,4 +1,6 @@
 <?php
+require 'fornecedor.php';
+
 class FornecedoresController extends Controller
 {
     /**
