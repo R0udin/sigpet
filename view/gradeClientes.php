@@ -1,17 +1,17 @@
-<h3>Clientes</h3>
-<hr>
 <div class="container">
+  <div class="section">
+    <h4>Clientes</h4>
     <table class="highlight" style="top:40px;">
         <thead>
             <tr>
-                <th>Nome</th>
+                <th>Cliente</th>
                 <th>CPF</th>
                 <th>RG</th>
                 <th>Data de nascimento</th>
-                <th>Data de cadastro</th>
+                <th>Data do cadastro</th>
                 <th>Telefone</th>
                 <th>Email</th>
-                <th>Tipo</th>
+                <th>Tipo do cliente</th>
                 <th>CNPJ</th>
                 <th>Referencia</th>
                 <th>Celular</th>
@@ -53,4 +53,5 @@
             ?>
         </tbody>
     </table>
+  </div>
 </div>

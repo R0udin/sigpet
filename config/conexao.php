@@ -1,4 +1,8 @@
 <?php
+include_once '../model/cliente.php';
+include_once '../model/fornecedor.php';
+include_once '../model/produto.php';
+
 class Conexao
 {
     private static $conexao;

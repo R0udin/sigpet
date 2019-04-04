@@ -1,6 +1,6 @@
-<h3>Fornecedores</h3>
-<hr>
 <div class="container">
+  <div class="section">
+    <h4>Fornecedores</h4>
     <table class="highlight" style="top:40px;">
         <thead>
             <tr>
@@ -57,4 +57,5 @@
             ?>
         </tbody>
     </table>
+  </div>
 </div>

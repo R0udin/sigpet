@@ -1,6 +1,6 @@
 <?php
-require 'produto.php';
-
+require_once '../model/produto.php';
+require_once 'Controller.php';
 class ProdutosController extends Controller
 {
     /**

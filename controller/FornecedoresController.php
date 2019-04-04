@@ -1,4 +1,7 @@
 <?php
+require_once '../model/fornecedor.php';
+require_once 'Controller.php';
+
 class FornecedoresController extends Controller
 {
     /**

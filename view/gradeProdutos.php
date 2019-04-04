@@ -1,6 +1,6 @@
-<h3>Produtos</h3>
-<hr>
 <div class="container">
+  <div class="section">
+    <h4>Produtos</h4>
     <table class="highlight" style="top:40px;">
         <thead>
             <tr>
@@ -46,4 +46,5 @@
             ?>
         </tbody>
     </table>
+  </div>
 </div>

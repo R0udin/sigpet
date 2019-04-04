@@ -1,3 +1,9 @@
+<script  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });>
+
+</script>
 <div class="container">
     <form action="?controller=ClientesController&<?php echo isset($cliente->id) ? "method=atualizar&id={$cliente->id}" : "method=salvar"; ?>" method="post" >
         <div class="card" style="top:40px">
@@ -26,7 +32,7 @@
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">Data de nascimento:</label>
-                <input type="text" class="form-control col-sm-8" name="DT_NASCIMENTO" id="DT_NASCIMENTO" value="<?php
+                <input type="text" class="datepicker" name="DT_NASCIMENTO" id="DT_NASCIMENTO" value="<?php
                 echo isset($cliente->DT_NASCIMENTO) ? $cliente->DT_NASCIMENTO : null;
                 ?>" />
             </div>

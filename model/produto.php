@@ -1,7 +1,8 @@
 <?php
-require 'conexao.php';
+require_once '../config/conexao.php';
 
-class Cliente
+
+class Produto
 {
     private $atributos;
     public function __construct()
@@ -28,7 +29,7 @@ class Cliente
     {
         $colunas = $this->preparar($this->atributos);
         if (!isset($this->id)) {
-            $query = "INSERT INTO clientes (".
+            $query = "INSERT INTO produtos (".
                 implode(', ', array_keys($colunas)).
                 ") VALUES (".
                 implode(', ', array_values($colunas)).");";
@@ -38,7 +39,7 @@ class Cliente
                     $definir[] = "{$key}={$value}";
                 }
             }
-            $query = "UPDATE clientes SET ".implode(', ', $definir)." WHERE id='{$this->id}';";
+            $query = "UPDATE produtos SET ".implode(', ', $definir)." WHERE id='{$this->id}';";
         }
         if ($conexao = Conexao::getInstance()) {
             $stmt = $conexao->prepare($query);
@@ -87,10 +88,10 @@ class Cliente
     public static function all()
     {
         $conexao = Conexao::getInstance();
-        $stmt    = $conexao->prepare("SELECT * FROM clientes;");
+        $stmt    = $conexao->prepare("SELECT * FROM produtos;");
         $result  = array();
         if ($stmt->execute()) {
-            while ($rs = $stmt->fetchObject(Cliente::class)) {
+            while ($rs = $stmt->fetchObject(Produto::class)) {
                 $result[] = $rs;
             }
         }
@@ -106,7 +107,7 @@ class Cliente
     public static function count()
     {
         $conexao = Conexao::getInstance();
-        $count   = $conexao->exec("SELECT count(*) FROM clientes;");
+        $count   = $conexao->exec("SELECT count(*) FROM produtos;");
         if ($count) {
             return (int) $count;
         }
@@ -120,10 +121,10 @@ class Cliente
     public static function find($id)
     {
         $conexao = Conexao::getInstance();
-        $stmt    = $conexao->prepare("SELECT * FROM clientes WHERE id='{$id}';");
+        $stmt    = $conexao->prepare("SELECT * FROM produtos WHERE id='{$id}';");
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
-                $resultado = $stmt->fetchObject('Cliente');
+                $resultado = $stmt->fetchObject('Produto');
                 if ($resultado) {
                     return $resultado;
                 }
@@ -139,7 +140,7 @@ class Cliente
     public static function destroy($id)
     {
         $conexao = Conexao::getInstance();
-        if ($conexao->exec("DELETE FROM clientes WHERE id='{$id}';")) {
+        if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
             return true;
         }
         return false;

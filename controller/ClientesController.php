@@ -1,5 +1,7 @@
 <?php
-require 'cliente.php';
+require_once '../model/cliente.php';
+require_once 'Controller.php';
+
 class ClientesController extends Controller
 {
     /**
@@ -43,6 +45,8 @@ class ClientesController extends Controller
         $cliente->CNPJ_CLIENTE    = $this->request->CNPJ_CLIENTE;
         $cliente->REFERENCIA_CLIENTE    = $this->request->REFERENCIA_CLIENTE;
         $cliente->CELULAR    = $this->request->CELULAR;
+
+
         if ($cliente->save()) {
             return $this->listar();
         }
@@ -65,7 +69,6 @@ class ClientesController extends Controller
         $cliente->CNPJ_CLIENTE    = $this->request->CNPJ_CLIENTE;
         $cliente->REFERENCIA_CLIENTE    = $this->request->REFERENCIA_CLIENTE;
         $cliente->CELULAR    = $this->request->CELULAR;
-        $cliente->save();
         return $this->listar();
     }
     /**
