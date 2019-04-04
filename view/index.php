@@ -32,7 +32,7 @@ spl_autoload_register(function($class) {
         <div class="navbar-fixed">
           <nav class="white" role="navigation">
             <div class="nav-wrapper container">
-            <a href="../index.html" class="brand-logo"><i class="material-icons">pets</i>Sigpet</a>
+            <a href="../index.php" class="brand-logo"><i class="material-icons">pets</i>Sigpet</a>
             <ul class="right hide-on-med-and-down">
               <li><a href="?controller=ProdutosController&method=listar">Produtos</a></li>
               <li><a href="?controller=FornecedoresController&method=listar">Fornecedores</a></li>
