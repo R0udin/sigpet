@@ -45,8 +45,8 @@
                         <td><?php echo $venda->NOME_CLIENTE; ?></td>
                         <td><?php echo $venda->VALOR_VENDA_CAB; ?></td>
                         <td>
-                          <a href="?controller=VendasController&method=editar&id=<?php echo $venda->ID; ?>" class="btn btn-primary btn-sm">Editar</a>
-                          <a href="?controller=VendasController&method=excluir&id=<?php echo $venda->ID; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            <a href="?controller=VendasController&method=editar&id=<?php echo $venda->ID; ?>" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="?controller=VendasController&method=excluir&id=<?php echo $venda->ID; ?>" class="btn btn-danger btn-sm">Excluir</a>
                         </td>
                     </tr>
                     <?php
