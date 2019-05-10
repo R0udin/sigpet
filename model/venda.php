@@ -25,26 +25,72 @@ class Venda
      * Salvar o cliente
      * @return boolean
      */
+	 //`heroku_87bfe723a0b6070`.
     public function save()
     {
         $colunas = $this->preparar($this->atributos);
-        if (!isset($this->ID)) {
-            $query = "INSERT INTO venda_cabs (".
-                implode(', ', array_keys($colunas)).
-                ") VALUES (".
-                implode(', ', array_values($colunas)).");";
-        } else {
+			$arrayNomes = array_keys($colunas);
+			$valores = array_values($colunas);
+        if ($this->ID == null) {
+			$nomesVendaCabs = "`".$arrayNomes[1]."`, `".$arrayNomes[2]."`, `DATA_VENDA_CAB`";
+			$valVendaCabs = $valores[1].", ".$valores[2].", CURDATE()";
+            $query = "INSERT INTO venda_cabs (".$nomesVendaCabs.") VALUES (".$valVendaCabs.");";
+        }else {
             foreach ($colunas as $key => $value) {
                 if ($key !== 'ID') {
                     $definir[] = "{$key}={$value}";
                 }
             }
-            $query = "UPDATE venda_cabs SET ".implode(', ', $definir)." WHERE ID='{$this->ID}';";
+            $query = "UPDATE venda_cabs SET ".$definir[0].", ".$definir[1]." WHERE `ID`={$this->ID};";
         }
+			//var_dump($query); exit;
+
         if ($conexao = Conexao::getInstance()) {
             $stmt = $conexao->prepare($query);
             if ($stmt->execute()) {
-                return $stmt->rowCount();
+
+				$qProd = '';
+				$nomesProd = $arrayNomes[3].", ".$arrayNomes[4].", ".$arrayNomes[5].", ".$arrayNomes[6].", `VENDA_CAB_ID`";
+				$prodID = explode('/', str_replace('\'', '', $valores[3]));
+				$prodVlrUn = explode('/', str_replace('\'', '', $valores[4]));
+				$prodVleTotal = explode('/', str_replace('\'', '', $valores[5]));
+				$prodQt = explode('/', str_replace('\'', '', $valores[6]));
+
+				if($this->ID == null){
+
+					$lastid = $conexao->prepare('SELECT LAST_INSERT_ID() as lastid from venda_cabs;');
+					if ($lastid->execute()) {
+						$resultado = $lastid->fetchObject('Venda');
+						if ($resultado) {
+				//var_dump($prodQt); exit;
+							for($j=0;$j<count($prodID)-1;$j++){
+								$valProd = $prodID[$j].", ".$prodVlrUn[$j].", ".$prodVleTotal[$j].", ".$prodQt[$j].", ".$resultado->lastid;
+								$qProd .= "INSERT INTO venda_dets (".$nomesProd.") VALUES (".$valProd.");";
+							}
+						}
+					}
+
+
+				}else{
+					//var_dump("delete from venda_cabs where `VENDA_CAB_ID`=".$this->ID.";"); exit;
+					if ($conexao->exec("delete from venda_dets where `VENDA_CAB_ID`=".$this->ID.";")) {
+						for($j=0;$j<count($prodID)-1;$j++){
+							$valProd = $prodID[$j].", ".$prodVlrUn[$j].", ".$prodVleTotal[$j].", ".$prodQt[$j].", ".$this->ID;
+							$qProd .= "INSERT INTO venda_dets (".$nomesProd.") VALUES (".$valProd.");";
+						}
+					}else{
+						return false;
+					}
+				}
+
+				$inProd = $conexao->prepare($qProd);
+				if ($inProd->execute()) {
+					return $inProd->rowCount();
+				}else{
+					return false;
+				}
+
+				return $stmt->rowCount();
             }
         }
         return false;
@@ -124,13 +170,15 @@ class Venda
     public static function find($id)
     {
         $conexao = Conexao::getInstance();
-        $stmt    = $conexao->prepare("SELECT * FROM venda_cabs WHERE id='{$id}';");
+        $stmt    = $conexao->prepare("SELECT a.ID, a.CLIENTE_ID, a.VALOR_VENDA_CAB, b.PRODUTO_ID, b.QTD_VENDA_DETA, b.VLR_UNIT_VENDA_DETA, c.NOME_CLIENTE, d.DESCRICAO FROM venda_cabs as a left join venda_dets as b on a.ID = b.VENDA_CAB_ID left join clientes as c on a.CLIENTE_ID = c.id left join produtos as d on b.PRODUTO_ID = d.id  where a.ID ='{$id}';");
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
-                $resultado = $stmt->fetchObject('Venda');
-                if ($resultado) {
-                    return $resultado;
-                }
+                while ($rs = $stmt->fetchObject(Venda::class)) {
+					$result[] = $rs;
+				}
+                if (count($result) > 0) {
+					return $result;
+				}
             }
         }
         return false;
@@ -170,12 +218,30 @@ class Venda
      * @param type $id
      * @return boolean
      */
+
+     //DELETE messages , usersmessages  FROM messages  INNER JOIN usersmessages
+     //WHERE messages.messageid= usersmessages.messageid and messages.messageid = '1'
+
+
+  /**
+  *if ($conexao->exec("DELETE FROM venda_dets WHERE `VENDA_CAB_ID`=".$id->ID." ;
+  *                      DELETE FROM venda_cabs WHERE ID='{$id}'"))
+  *  {
+  *  if ($conexao->exec("DELETE venda_dets , venda_cabs FROM venda_cabs as a INNER JOIN venda_dets as b
+  *                      WHERE a.ID = b.VENDA_CAB_ID
+  *                      and a.ID = '{$id}'")
+  *
+  */
+
     public static function destroy($id)
     {
         $conexao = Conexao::getInstance();
-        if ($conexao->exec("DELETE FROM venda_cabs WHERE id='{$id}';")) {
+        if ($conexao->exec("DELETE FROM venda_dets WHERE `VENDA_CAB_ID`='{$id}';
+                            DELETE FROM venda_cabs WHERE ID='{$id}'"))
+        {
             return true;
         }
+
         return false;
     }
 }
