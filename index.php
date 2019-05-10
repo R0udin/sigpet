@@ -1,4 +1,16 @@
 <?php
+include "config.php";
+
+// Check user login or not
+if(!isset($_SESSION['uname'])){
+    header('Location: login.php');
+}
+
+// logout
+if(isset($_POST['but_logout'])){
+    session_destroy();
+    header('Location: login.php');
+}
  ?>
 <!DOCTYPE html>
 <html lang='pt-br'>
@@ -14,10 +26,15 @@
     </header>
       <body>
         <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#!">Relatório 1</a></li>
-          <li><a href="#!">Relatório 2</a></li>
-          <li><a href="#!">Relatório 3</a></li>
+          <li><a href="#!">Funcionários</a></li>
+          <li><a href="#!">Produtos</a></li>
+          <li><a href="view/index.php?controller=FornecedoresController&method=RelFor">Fornecedores</a></li>
+          <li><a href="view/index.php?controller=ClientesController&method=RelCliente">Clientes</a></li>
+          <li><a href="view/index.php?controller=VendasController&method=RelVenda">Vendas</a></li>
+          <li><a href="view/RelatorioEstaticoVenda.php">Comparativo</a></li>
+          <li><a href="#!">Relativo de Vendas</a></li>
         </ul>
+        <form method='post' action="">
         <div class="navbar-fixed">
           <nav class="white" role="navigation">
             <div class="nav-wrapper container">
@@ -25,9 +42,11 @@
             <ul class="right hide-on-med-and-down">
               <li><a href="view/index.php?controller=ProdutosController&method=listar">Produtos</a></li>
               <li><a href="view/index.php?controller=FornecedoresController&method=listar">Fornecedores</a></li>
-              <li><a href="#">Vendas</a></li>
+              <li><a href="view/index.php?controller=VendasController&method=listar">Vendas</a></li>
               <li><a href="view/index.php?controller=ClientesController&method=listar">Clientes</a></li>
+              <li><a href="view/index.php?controller=FuncionariosController&method=listar">Funcionários</a></li>
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><input type="submit" class="waves-effect waves-light btn-small" class="white-text" value="Logout" name="but_logout"></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
               <li><a href="#">Navbar Link</a></li>
@@ -36,6 +55,7 @@
           </div>
         </nav>
       </div>
+    </form>
         <div id="index-banner" class="parallax-container">
           <div class="section no-pad-bot">
             <div class="container">
@@ -45,7 +65,7 @@
                 <h5 class="header col s12 light"><b></b></h5>
               </div>
               <div class="row center">
-                <a href="#" class="waves-effect waves-light btn-large"><i class="material-icons right">monetization_on</i>Realizar venda</a>
+                <a href="view/index.php?controller=VendasController&method=criar" class="waves-effect waves-light btn-large"><i class="material-icons right">monetization_on</i>Realizar venda</a>
               </div>
               <br><br>
 

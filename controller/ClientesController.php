@@ -12,6 +12,11 @@ class ClientesController extends Controller
         $clientes = Cliente::all();
         return $this->view('gradeClientes', ['clientes' => $clientes]);
     }
+    public function RelCliente()
+    {
+        $clientes = Cliente::all();
+        return $this->view('RelCliente', ['clientes' => $clientes]);
+    }
     /**
      * Mostrar formulario para criar um novo cliente
      */
@@ -69,7 +74,9 @@ class ClientesController extends Controller
         $cliente->CNPJ_CLIENTE    = $this->request->CNPJ_CLIENTE;
         $cliente->REFERENCIA_CLIENTE    = $this->request->REFERENCIA_CLIENTE;
         $cliente->CELULAR    = $this->request->CELULAR;
-        return $this->listar();
+        if ($cliente->save()) {
+            return $this->listar();
+        }
     }
     /**
      * Apagar um cliente conforme o id informado

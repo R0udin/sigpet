@@ -39,7 +39,6 @@
                 <th>Telefone</th>
                 <th>Celular</th>
 
-                <th><a href="?controller=FornecedoresController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
             </tr>
         </thead>
         <h4>Fornecedores</h4>
@@ -62,10 +61,6 @@
                         <td><?php echo $fornecedor->EMAIL_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->TELEFONE_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->CELULAR_FORNECEDOR; ?></td>
-                        <td>
-                            <a href="?controller=FornecedoresController&method=editar&id=<?php echo $fornecedor->id; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=FornecedoresController&method=excluir&id=<?php echo $fornecedor->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
-                        </td>
                     </tr>
                     <?php
                 }

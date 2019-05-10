@@ -14,19 +14,19 @@
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">CNPJ:</label>
-                <input type="text" class="form-control col-sm-8" name="CNPJ_FORNECEDOR" id="CNPJ_FORNECEDOR" value="<?php
+                <input type="text" class="cnpj form-control col-sm-8" name="CNPJ_FORNECEDOR" id="CNPJ_FORNECEDOR" value="<?php
                 echo isset($fornecedor->CNPJ_FORNECEDOR) ? $fornecedor->CNPJ_FORNECEDOR : null;
                 ?>" />
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">CPF:</label>
-                <input type="text" class="form-control col-sm-8" name="CPF_FORNECEDOR" id="CPF_FORNECEDOR" value="<?php
+                <input type="text" class="cpf form-control col-sm-8" name="CPF_FORNECEDOR" id="CPF_FORNECEDOR" value="<?php
                 echo isset($fornecedor->CPF_FORNECEDOR) ? $fornecedor->CPF_FORNECEDOR : null;
                 ?>" />
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">Inscrição estadual:</label>
-                <input type="text" class="form-control col-sm-8" name="INSCRICAOESTADUAL_FORNECEDOR" id="INSCRICAOESTADUAL_FORNECEDOR" value="<?php
+                <input type="text" class="InscricaoEstadual form-control col-sm-8" name="INSCRICAOESTADUAL_FORNECEDOR" id="INSCRICAOESTADUAL_FORNECEDOR" value="<?php
                 echo isset($fornecedor->INSCRICAOESTADUAL_FORNECEDOR) ? $fornecedor->INSCRICAOESTADUAL_FORNECEDOR : null;
                 ?>" />
             </div>
@@ -56,13 +56,13 @@
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">UF:</label>
-                <input type="text" class="form-control col-sm-8" name="UF_FORNECEDOR" id="UF_FORNECEDOR" value="<?php
+                <input type="text" class="estado form-control col-sm-8" name="UF_FORNECEDOR" id="UF_FORNECEDOR" value="<?php
                 echo isset($fornecedor->UF_FORNECEDOR) ? $fornecedor->UF_FORNECEDOR : null;
                 ?>" />
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">CEP:</label>
-                <input type="text" class="form-control col-sm-8" name="CEP_FORNECEDOR" id="CEP_FORNECEDOR" value="<?php
+                <input type="text" class="cep form-control col-sm-8" name="CEP_FORNECEDOR" id="CEP_FORNECEDOR" value="<?php
                 echo isset($fornecedor->CEP_FORNECEDOR) ? $fornecedor->CEP_FORNECEDOR : null;
                 ?>" />
             </div>

@@ -22,7 +22,6 @@
               }
             }
           </script>
-    </table>
     <table class="highlight" style="top:40px;" id="myTable">
         <thead>
             <tr>
@@ -38,7 +37,6 @@
                 <th>Referencia</th>
                 <th>Celular</th>
 
-                <th><a href="?controller=ClientesController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
             </tr>
         </thead>
         <h4>Clientes</h4>
@@ -59,10 +57,6 @@
                         <td><?php echo $cliente->CNPJ_CLIENTE; ?></td>
                         <td><?php echo $cliente->REFERENCIA_CLIENTE; ?></td>
                         <td><?php echo $cliente->CELULAR; ?></td>
-                        <td>
-                            <a href="?controller=ClientesController&method=editar&id=<?php echo $cliente->id; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=ClientesController&method=excluir&id=<?php echo $cliente->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
-                        </td>
                     </tr>
                     <?php
                 }

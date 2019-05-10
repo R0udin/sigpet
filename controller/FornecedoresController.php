@@ -12,6 +12,12 @@ class FornecedoresController extends Controller
         $fornecedores = Fornecedor::all();
         return $this->view('gradeFornecedores', ['fornecedores' => $fornecedores]);
     }
+
+    public function RelFor()
+    {
+        $fornecedores = Fornecedor::all();
+        return $this->view('RelFornecedor', ['fornecedores' => $fornecedores]);
+    }
     /**
      * Mostrar formulario para criar um novo cliente
      */
@@ -72,7 +78,10 @@ class FornecedoresController extends Controller
         $fornecedor->EMAIL_FORNECEDOR    = $this->request->EMAIL_FORNECEDOR;
         $fornecedor->TELEFONE_FORNECEDOR    = $this->request->TELEFONE_FORNECEDOR;
         $fornecedor->CELULAR_FORNECEDOR    = $this->request->CELULAR_FORNECEDOR;
-        return $this->listar();
+      
+        if ($fornecedor->save()) {
+            return $this->listar();
+        }
     }
     /**
      * Apagar um cliente conforme o id informado

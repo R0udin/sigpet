@@ -58,8 +58,9 @@ class ProdutosController extends Controller
         $produto->ESTOQUE    = $this->request->ESTOQUE;
         $produto->CRITICO    = $this->request->CRITICO;
         $produto->FORNECEDORE_ID    = $this->request->FORNECEDORE_ID;
-        $produto->save();
-        return $this->listar();
+        if ($produto->save()) {
+            return $this->listar();
+        }
     }
     /**
      * Apagar um cliente conforme o id informado
