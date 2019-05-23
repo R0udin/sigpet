@@ -32,7 +32,7 @@ if(isset($_POST['but_logout'])){
           <li><a href="view/index.php?controller=ClientesController&method=RelCliente">Clientes</a></li>
           <li><a href="view/index.php?controller=VendasController&method=RelVenda">Vendas</a></li>
           <li><a href="view/RelatorioEstaticoVenda.php">Comparativo</a></li>
-          <li><a href="#!">Relativo de Vendas</a></li>
+          <li><a href="view/index.php?controller=VendasController&method=relatoriosvenda">Relativo de Vendas</a></li>
         </ul>
         <form method='post' action="">
         <div class="navbar-fixed">

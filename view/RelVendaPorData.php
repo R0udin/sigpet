@@ -1,26 +1,19 @@
 <?php
 ini_set( "display_errors", 0); 
-require '../config/conexao.php';
   $con = mysqli_connect('us-cdbr-iron-east-03.cleardb.net','b91118ec66dcf8','8ed6f6be','heroku_87bfe723a0b6070');
   if(isset($_POST['executar']))
   {
     $DataInicio=$_POST['DataInicio'];
     $DataFim=$_POST['DataFim'];
-    $DataInicio2=$_POST['DataInicio2'];
-    $DataFim2=$_POST['DataFim2'];
-    $projecao1=$_POST['projecao1'];
-    $projecao2=$_POST['projecao2'];
-    $set1 = mysqli_query ($con, "SET @rank1=0");
-    $set2 = mysqli_query ($con, "SET @rank2=0");
-    $query = mysqli_query ($con, "select SUM(t1.VALOR_VENDA_CAB) as 'vendas', SUM(t2.VALOR_VENDA_CAB) as 'vendas2' from
-(SELECT @rank1 := @rank1+1  as id, VALOR_VENDA_CAB FROM venda_cabs WHERE DATA_VENDA_CAB Between '$DataInicio' and '$DataFim' ) as t1
-left join
-(SELECT @rank2 := @rank2+1  as id, VALOR_VENDA_CAB FROM venda_cabs WHERE DATA_VENDA_CAB Between '$DataInicio2' and '$DataFim2') t2 on t1.id = t2.id");
+    $query = mysqli_query ($con, "select * from venda_cabs vc
+join clientes cl on cl.id = vc.CLIENTE_ID
+where vc.DATA_VENDA_CAB between '$DataInicio' and '$DataFim' order by vc.DATA_VENDA_CAB");
 
     $count = mysqli_num_rows($query);
   }
   global $count;
   global $query;
+
   include "../config.php";
 
   // Check user login or not
@@ -33,7 +26,6 @@ left join
       session_destroy();
       header('Location: ../login.php');
   }
-
 ?>
 <!DOCTYPE html>
 <html lang='pt-br'>
@@ -98,36 +90,24 @@ left join
         </div>
         <div class="container">
           <div class="section">
-<h4>Comparativo entre períodos</h4>
+<h4>Relatório de venda por data</h4>
 <div class="container">
   <div class="section">
-	<form method="post" action="?controller=VendasController&method=relestatico">
-    <h7>Selecione o primeiro periodo</h7>
+	<form method="post">
+    <h7>Escolha a data</h7>
 		<input type="date" name="DataInicio">
 		<input type="date" name="DataFim">
     <p>
     <p>
-    <h7>Selecione o segundo periodo</h7>
-		<input type="date" name="DataInicio2">
-		<input type="date" name="DataFim2">
-    <p>
-    <p>
-    <h7>Digite a projecao do primeiro periodo</h7>
-    <input type="text" class=" form-control col-sm-8" name="projecao1" id="projecao1">
-    <h7>Digite a projecao do segundo periodo</h7>
-    <input type="text" class=" form-control col-sm-8" name="projecao2" id="projecao2">
-		<p>
-			<input class="btn btn-success" type="submit" name="executar" value="executar">
+    <input type="submit" name="executar" value="executar">
 		</p>
     <table class="highlight" style="top:40px;">
     <thead>
       <tr>
-        <th>Período</th>
-        <th>Vendas</th>
-        <th>Projeção</th>
-        <th>Realização da meta em %</th>
-        <th>Diferença absoluta</th>
-
+        <th>Código da Venda</th>
+        <th>Data da Venda</th>
+        <th>Cliente</th>
+        <th>Valor Total</th>
       </tr>
     </thead>
     <tbody>
@@ -138,41 +118,14 @@ left join
       }
       else{
           while($row = mysqli_fetch_array($query)){
-            $result=$row['vendas'];
-            $result2=$row['vendas2'];
-            $output=$result;
-            $output2=$result2;
-            $meta1= $output /$projecao1;
-            $metapercent1 = round((float)$meta1 * 100 ) . '%';
-            $meta2= $output2 /$projecao2;
-            $metapercent2 = round((float)$meta2 * 100 ) . '%';
-            $diferencaV= ($output+$output2);
-            $diferencaPro=  ($projecao1+$projecao2);
-            $metaPro=$diferencaV /$diferencaPro;
-            $metapercentPro = round((float)$metaPro * 100 ) . '%';
             ?>
             <tr>
-              <td>Período 1</td>
-              <td><?php echo $output;?> </td>
-              <td><?php echo $projecao1;?> </td>
-              <td><?php echo $metapercent1?> </td>
-              <td><?php echo ($output-$projecao1);?> </td>
+              <td><?php echo $row['ID'];?> </td>
+              <td><?php echo $row['DATA_VENDA_CAB'];?> </td>
+              <td><?php echo $row['NOME_CLIENTE'];?> </td>
+              <td><?php echo $row['VALOR_VENDA_CAB'];?> </td>
             </tr>
-            <tr>
-              <td>Período 2</td>
-              <td><?php echo $output2;?> </td>
-              <td><?php echo $projecao2;?> </td>
-              <td><?php echo $metapercent2?> </td>
-              <td><?php echo ($output2-$projecao2);?> </td>
-            </tr>
-            <tr>
-              <td>Absoluto</td>
-              <td><?php echo $diferencaV;?> </td>
-              <td><?php echo $diferencaPro;?> </td>
-              <td><?php echo $metapercentPro?> </td>
-              <td><?php echo ($diferencaV-$diferencaPro);?> </td>
-            </tr>
-            <?php }
+              <?php }
         } ?>
       </tbody>
     </table>
