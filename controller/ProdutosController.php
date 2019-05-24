@@ -11,6 +11,12 @@ class ProdutosController extends Controller
         $produtos = Produto::all();
         return $this->view('gradeProdutos', ['produtos' => $produtos]);
     }
+
+    public function relProduto()
+    {
+        $produtos = Produto::all();
+        return $this->view('RelProdutos', ['produtos' => $produtos]);
+    }
     /**
      * Mostrar formulario para criar um novo cliente
      */
@@ -26,6 +32,12 @@ class ProdutosController extends Controller
         $id      = (int) $dados['id'];
         $produto = Produto::find($id);
         return $this->view('formProduto', ['produto' => $produto]);
+    }
+    public function relatorio($dados)
+    {
+        $id      = (int) $dados['id'];
+        $produto = Produto::find($id);
+        return $this->view('RelformProduto', ['produto' => $produto]);
     }
     /**
      * Salvar o cliente submetido pelo formulário
