@@ -7,46 +7,38 @@ require '../model/RCGV.php';
       <div class="content">
         <h2>Relatório Comparativo de Vendas <strong>Gráfico</strong></h2>
         <div align="center">
+		<form name="busca" href="." method="GET">
           <table width="778" border="0" align="center" cellspacing="30">
             <tr>
               <th scope="col">DATA INICIAL:
-                <input type="text" name="DATA INICIAL" value="01/01/2019" size="10" /></th>
+                <input type="text" name="DATAINI" size="10" /></th>
               <th scope="col">DATA FINAL:
-                <input type="text" name="DATA FINAL" value="01/01/2019" size="10" />
+                <input type="text" name="DATAFIN" size="10" />
               </th>
-            <th scope="col">TIPO:
-<select name="TIPO">
-    <?php while ($row = pg_fetch_assoc($tipopg))
-                                {
-                                        echo "<option value=$row[DESCRICAO_PAGAMT]>$row[DESCRICAO_PAGAMT]</option>";
-                                }
-	?>
-</select></th>
-<th scope="col">CODIGO: <input type="text" name="CODIGO" value="1" size="11" />
-</th>
     <th scope="col">VENDEDOR:<select name="VENDEDOR">
-    <?php while ($row = pg_fetch_assoc($nomefunc))
+		<option value='' selected>Selecione um funcionário</option>
+    <?php foreach($nomefunc as $func)
                                 {
-                                        echo "<option value=$row[NOME_FUNCIONARIO]>$row[NOME_FUNCIONARIO]</option>";
+                                        echo "<option value=$func[id]>$func[NOME_FUNCIONARIO]</option>";
                                 }
 	?>
 </select></th>
     <th scope="col">CLIENTE: <select name="CLIENTE">
-    <?php while ($row = pg_fetch_assoc($nomecliente))
+		<option value='' selected>Selecione um cliente</option>
+    <?php foreach($nomecliente as $cliente)
                                 {
-                                        echo "<option value=$row[NOME_CLIENTE]>$row[NOME_CLIENTE]</option>";
+                                        echo "<option value=$cliente[id]>$cliente[NOME_CLIENTE]</option>";
                                 }
 	?>
 </select></th>
-    <th scope="col">
-<!--BOTAO BUSCAR-->
-<form name="busca" action="buscar.php" method="POST">
 
+<!--BOTAO BUSCAR-->
 <input type="submit" name="buscar" value="Buscar" />
 
-</form></th>
+
             </tr>
           </table>
+</form>
         </div>
         <p>
         </p>
@@ -61,38 +53,53 @@ require '../model/RCGV.php';
     <div class="column wide">
       <h2>Tabela Vendas</h2>
       <table border=1>
+	  
 		<thead>
 			<tr >
-				<th colspan="4">Vendas</th>
+				<th colspan="13">Vendas</th>
 			</tr>
+		</thead>
+		
+		<tbody>
+		<?php
+		
+		if(count($vendas) == 0){
+			echo "<tr><td colspan=13 align='center'>Nenhum dado encontrado</td></tr>";
+		}
+		
+		?>
 			<tr>
 				<td>
 				</td>
-				<td>
-					2018
-				</td>
-				<td>
-					2019
-				</td>
-				<td>
-					2020
-				</td>
+				<?php 	
+					for($i=0;$i<12;$i++){
+						echo "<td>$mes[$i]</td>";
+					} 
+				?>
 			</tr>
 			<?php
-			for($i=0;$i<12;$i++){
+			
+			for($i=0;$i<=$ano;$i++){
 				echo "<tr>";
-					echo "<td>$mes[$i]</td>";
-					echo "<td>$venda18[$i]</td>";
-					echo "<td>$venda19[$i]</td>";
-					echo "<td>$venda20[$i]</td>";
+					$tabAno = $primeiroAno + $i;
+					echo "<td>$tabAno</td>" ;
+					for($j=1;$j<=12;$j++){
+						$valVenda = 0;
+						foreach($vendas as $venda){
+							if($venda['MONTH(DATA_VENDA_CAB)'] == $j && $venda['YEAR(DATA_VENDA_CAB)'] == $tabAno){
+								$valVenda = $venda['SUM(VALOR_VENDA_CAB)'];
+								break;
+							}
+						}
+						echo "<td>$valVenda</td>";
+					}
 				echo "</tr>";
 
 			}
 			?>
-		</thead>
-		<tbody>
 
 		</tbody>
+		
 	  </table>
     </div>
     <!-- //.column -->
@@ -103,78 +110,91 @@ require '../model/RCGV.php';
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-	  var jan18 = <?php echo $venda18[0] ?>;
-	  var fev18 = <?php echo $venda18[1] ?>;
-	  var mar18 = <?php echo $venda18[2] ?>;
-	  var abr18 = <?php echo $venda18[3] ?>;
-	  var mai18 = <?php echo $venda18[4] ?>;
-	  var jun18 = <?php echo $venda18[5] ?>;
-	  var jul18 = <?php echo $venda18[6] ?>;
-	  var ago18 = <?php echo $venda18[7] ?>;
-	  var set18 = <?php echo $venda18[8] ?>;
-	  var out18 = <?php echo $venda18[9] ?>;
-	  var nov18 = <?php echo $venda18[10] ?>;
-	  var dez18 = <?php echo $venda18[11] ?>;
-	  //
-	  var jan19 = <?php echo $venda19[0] ?>;
-	  var fev19 = <?php echo $venda19[1] ?>;
-	  var mar19 = <?php echo $venda19[2] ?>;
-	  var abr19 = <?php echo $venda19[3] ?>;
-	  var mai19 = <?php echo $venda19[4] ?>;
-	  var jun19 = <?php echo $venda19[5] ?>;
-	  var jul19 = <?php echo $venda19[6] ?>;
-	  var ago19 = <?php echo $venda19[7] ?>;
-	  var set19 = <?php echo $venda19[8] ?>;
-	  var out19 = <?php echo $venda19[9] ?>;
-	  var nov19 = <?php echo $venda19[10] ?>;
-	  var dez19 = <?php echo $venda19[11] ?>;
-	  //
-	  var jan20 = <?php echo $venda20[0] ?>;
-	  var fev20 = <?php echo $venda20[1] ?>;
-	  var mar20 = <?php echo $venda20[2] ?>;
-	  var abr20 = <?php echo $venda20[3] ?>;
-	  var mai20 = <?php echo $venda20[4] ?>;
-	  var jun20 = <?php echo $venda20[5] ?>;
-	  var jul20 = <?php echo $venda20[6] ?>;
-	  var ago20 = <?php echo $venda20[7] ?>;
-	  var set20 = <?php echo $venda20[8] ?>;
-	  var out20 = <?php echo $venda20[9] ?>;
-	  var nov20 = <?php echo $venda20[10] ?>;
-	  var dez20 = <?php echo $venda20[11] ?>;
-	  //
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Grafico anual', '2018', '2019', '2020'],
-          ['JAN', jan18, jan19, jan20],
-          ['FEV', fev18, fev19, fev20],
-          ['MAR', mar18, mar19, mar20],
-          ['ABR', abr18, abr19, abr20],
-          ['MAI', mai18, mai19, mai20],
-          ['JUN', jun18, jun19, jun20],
-          ['JUL', jul18, jul19, jul20],
-          ['AGO', ago18, ago19, ago20],
-          ['SET', set18, set19, set20],
-          ['OUT', out18, out19, out20],
-          ['NOV', nov18, nov19, nov20],
-          ['DEZ', dez18, dez19, dez20],
+
+var javascript_array = Array();
+<?php 
+	if(count($vendas) != 0){
+		$js_array = json_encode($vendas);
+		echo "javascript_array = ". $js_array . ";\n";
+		echo "var ano = ". $ano . ";\n";
+		echo "var pano = ". $primeiroAno . ";\n";
+		echo "var mes = ". json_encode($mes) . ";\n";
+	}
+?>
+
+if(javascript_array.length !== 0){
+var mainArray = Array();
+var arrCabeca  = Array();
+arrCabeca.push("Mês");
+for(i=0;i<=ano;i++){
+		arrCabeca.push("'"+(parseInt(pano)+i)+"'");
+}
+
+mainArray.push(arrCabeca);
+
+for(j=1;j<=12;j++){
+	var valArr = Array();
+	valArr.push(mes[j-1]);
+	for(i=0;i<=ano;i++){
+		value = 0;
+		for(var n in javascript_array){
+			 var arrV = Object.values(javascript_array[n]);
+			 if(parseInt(arrV[0]) == parseInt(pano)+i && parseInt(arrV[1]) == j){
+				 value = arrV[2];
+				 break;
+			 }
+		}
+		valArr.push(parseInt(value));
+	}
+	mainArray.push(valArr);
+}
+
+//console.log(mainArray);
 
 
-        ]);
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawChart);
+}
+  
+  function drawChart() {
+	var data = google.visualization.arrayToDataTable(mainArray);
 
-        var options = {
-          chart: {
-            title: 'RELATORIO CORPORATIVO DE VENDAS GRAFICO',
-            subtitle: 'Vendas, Meses e Valor: 2018-2020',
-          }
-        };
+	/*
+	
+	['Mês','2017','2018','2019'],
+	['Janeiro',12000,6000,0],
+	['Fevereiro',2000,0,0],
+	['Março',0,0,0],
+	['Abril',0,2000,0],
+	['Maio',0,0,14138742],
+	['Junho',2000,0,0],
+	['Julho',0,0,0],
+	['Agosto',0,0,0],
+	['Setembro',0,2000,0],
+	['Outubro',0,0,6939],
+	['Novembro',0,0,20],
+	['Dezembro',0,0,16191]
+	
+	*/
+	var options = {
+		width: 900,
+		height: 600,
+		chart: {
+			title: 'Gráfico de Vendas'
+		},
+		vAxis: {
+			title: 'Valor em Reais',
+			scaleType: 'mirrorLog',
+			ticks: [0, 10000, 1000000, 10000000, 20000000]
+		}
+	};
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+	var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
+	chart.draw(data, google.charts.Bar.convertOptions(options));
+  }
+</script>
+
     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
 
       </div>
@@ -189,3 +209,4 @@ require '../model/RCGV.php';
 
     <!-- //.column -->
   </div>
+
