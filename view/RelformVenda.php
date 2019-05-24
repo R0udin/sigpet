@@ -155,7 +155,7 @@ function incluirTabEdit(){
 
 		// SET INPUT ATTRIBUTE.
 		button.setAttribute('type', 'button');
-		button.setAttribute('value', 'disabled');
+		button.setAttribute('value', ' ');
 
 		// ADD THE BUTTON's 'onclick' EVENT.
 		//button.setAttribute('onclick', 'removeRow(this)');
