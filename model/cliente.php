@@ -132,6 +132,25 @@ class Cliente
         }
         return false;
     }
+
+    public static function relatorio($id)
+    {
+      $conexao = Conexao::getInstance();
+      $stmt    = $conexao->prepare("SELECT a.*,
+      b.NOME_CLIENTE, c.DESCRICAO_PAGAMT FROM heroku_87bfe723a0b6070.venda_cabs as a
+      LEFT JOIN heroku_87bfe723a0b6070.clientes as b ON a.CLIENTE_ID = b.id
+      LEFT JOIN heroku_87bfe723a0b6070.tipo_pagamentos as c on a.TIPO_PAGAMENTO_ID = c.ID  where a.CLIENTE_ID ='{$id}';");
+      $result  = array();
+      if ($stmt->execute()) {
+          while ($rs = $stmt->fetchObject(Venda::class)) {
+              $result[] = $rs;
+          }
+      }
+      if (count($result) > 0) {
+          return $result;
+      }
+      return false;
+    }
     /**
      * Destruir um recurso
      * @param type $id
