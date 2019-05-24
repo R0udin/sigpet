@@ -40,12 +40,13 @@ if(isset($_POST['but_logout'])){
       <body>
         <ul id="rels" class="dropdown-content">
           <li><a href="#!">Funcionários</a></li>
-          <li><a href="#!">Produtos</a></li>
+          <li><a href="?controller=ProdutosController&method=relProduto">Produtos</a></li>
           <li><a href="?controller=FornecedoresController&method=RelFor">Fornecedores</a></li>
           <li><a href="?controller=ClientesController&method=RelCliente">Clientes</a></li>
           <li><a href="?controller=VendasController&method=RelVenda">Vendas</a></li>
           <li><a href="RelatorioEstaticoVenda.php">Comparativo</a></li>
           <li><a href="?controller=VendasController&method=relatoriosvenda">Relativo de Vendas</a></li>
+          <li><a href="RCVG.php">Gráfico Comparativo de Vendas</a></li>  
         </ul>
         <form method='post' action="">
         <div class="navbar-fixed">
