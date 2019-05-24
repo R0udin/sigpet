@@ -37,6 +37,15 @@ class VendasController extends Controller
         $produtos = Venda::findproduto();
         return $this->view2('formVenda', [['vendas' => $vendas],['clientes' => $clientes],['produtos' => $produtos]]);
     }
+
+    public function relatorio($dados)
+    {
+        $id      = (int) $dados['id'];
+        $vendas = Venda::find($id);
+		$clientes = Venda::findcliente();
+        $produtos = Venda::findproduto();
+        return $this->view2('RelformVenda', [['vendas' => $vendas],['clientes' => $clientes],['produtos' => $produtos]]);
+    }
     /**
      * Salvar o cliente submetido pelo formulário
      */
@@ -116,9 +125,4 @@ class VendasController extends Controller
         $vendas = venda::destroy($id);
         return $this->listar();
     }
-    public function relatoriosvenda()
-    {
-      return $this->view('gradeRelatorios');
-    }
-
 }
