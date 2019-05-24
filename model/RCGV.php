@@ -1,72 +1,102 @@
 <?php
-/*
-$valor = array();
-$mes = array();
-$cor = array();
-
-$host = "localhost";
-$port = "5432";
-$dbname = "SIGPET";
-$user = "postgres";
-$password = "admin";
-$pg_options = "--client_encoding=UTF8";
-
-$connection_string = "host={$host} port={$port} dbname={$dbname} user={$user} password={$password} options='{$pg_options}'";
-$conexao = pg_connect($connection_string);
-
-
-if($conexao){
-    //echo "Connected to ". pg_host($conexao);
+require_once '../config/conexao.php';
+$conexao = Conexao::getInstance();
+$where = ' WHERE ';
+if($_GET['VENDEDOR'] != ''){
+	$addVendedor = "FUNCIONARIO_ID = ".$_GET['VENDEDOR'];
+	$where .= $addVendedor;
 }else{
-    echo "Error in connecting to database.";
+	$addVendedor = "";
 }
-
-echo "<br />";
-$tipopg = pg_query($conexao, "SELECT \"DESCRICAO_PAGAMT\" FROM tipo_pagamentos");
-if (!$tipopg) {
-    echo "An error occurred.\n";
-    exit;
-}
-
-$nomefunc = pg_query($conexao, "SELECT \"NOME_FUNCIONARIO\" FROM funcionarios");
-if (!$nomefunc) {
-    echo "An error occurred.\n";
-    exit;
-}
-
-$nomecliente = pg_query($conexao, "SELECT \"NOME_CLIENTE\" FROM clientes");
-if (!$nomecliente) {
-    echo "An error occurred.\n";
-    exit;
-}
-
-$vendas = pg_query($conexao, "select \"DATA_VENDA_CAB\", \"VALOR_VENDA_CAB\" from venda_cabs order by \"DATA_VENDA_CAB\"");
-if (!$vendas) {
-    echo "An error occurred.\n";
-    exit;
-}
-
-$mes = array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
-$venda18 = [];
-$venda19 = [];
-$venda20 = [];
-while ($row = pg_fetch_assoc($vendas))
-{
-	if(date('Y', strtotime($row["DATA_VENDA_CAB"])) == '2018'){
-		$venda18[] = $row["VALOR_VENDA_CAB"];
-	}else if(date('Y', strtotime($row["DATA_VENDA_CAB"])) == '2019'){
-		$venda19[] = $row["VALOR_VENDA_CAB"];
+if($_GET['CLIENTE'] != ''){
+	$addCliente = "CLIENTE_ID = ".$_GET['CLIENTE'];
+	if($where != " WHERE "){
+		$where .= " and ".$addCliente;  
 	}else{
-		$venda20[] = $row["VALOR_VENDA_CAB"];
+		$where .= $addCliente;
+	}
+}else{
+	$addCliente = "";
+}
+if($_GET['DATAINI'] != ''){
+	$date = str_replace('/', '-', $_GET['DATAINI']);
+	$addDataini = date('Y-m-d', strtotime($date));
+}else{
+	$addDataini = "";
+}
+if($_GET['DATAFIN'] != ''){
+	$date = str_replace('/', '-', $_GET['DATAFIN']);
+	$addDatafin = date('Y-m-d', strtotime($date));
+}else{
+	$addDatafin = "";
+}
+if($addDataini != '' && $addDatafin == ''){
+	$addData = " DATE(DATA_VENDA_CAB) BETWEEN '".$addDataini."' AND CURDATE()";
+}else if($addDataini == '' && $addDatafin != ''){
+	$addData = " DATE(DATA_VENDA_CAB) BETWEEN 2000-01-01 AND '".$addDatafin."'";
+}else if($addDataini != '' && $addDatafin != ''){
+	$addData = " DATE(DATA_VENDA_CAB) BETWEEN '".$addDataini."' AND '".$addDatafin."'";
+}else{
+	$addData = '';
+}
+if($addData != ''){
+	if($where != " WHERE "){
+		$where .= " and ".$addData;  
+	}else{
+		$where .= $addData;
 	}
 }
-
-
-//print_r ($venda20);
-
-pg_close($conexao);
-
-//$resnmcliente = pg_fetch_all($nomecliente);
-
-?>
+//print $where;
+	/*
+$stmt    = $conexao->prepare("SELECT * FROM tipo_pagamentos;");
+$tipopg  = array();
+if ($stmt->execute()) {
+	if ($stmt->rowCount() > 0) {
+		while ($rs = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$tipopg[] = $rs;
+		}
+	}
+}
 */
+$stmt    = $conexao->prepare("SELECT id, NOME_FUNCIONARIO FROM funcionarios;");
+$nomefunc  = array();
+if ($stmt->execute()) {
+	if ($stmt->rowCount() > 0) {
+		while ($rs = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$nomefunc[] = $rs;
+		}
+	}
+}
+$stmt    = $conexao->prepare("SELECT id, NOME_CLIENTE FROM clientes;");
+$nomecliente  = array();
+if ($stmt->execute()) {
+	if ($stmt->rowCount() > 0) {
+		while ($rs = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$nomecliente[] = $rs;
+		}
+	}
+}
+if($where != " WHERE "){
+	$sql = "SELECT YEAR(DATA_VENDA_CAB), MONTH(DATA_VENDA_CAB), SUM(VALOR_VENDA_CAB) from venda_cabs".$where." GROUP BY YEAR(DATA_VENDA_CAB), MONTH(DATA_VENDA_CAB);";
+}else{
+	$sql = "SELECT YEAR(DATA_VENDA_CAB), MONTH(DATA_VENDA_CAB), SUM(VALOR_VENDA_CAB) from venda_cabs GROUP BY YEAR(DATA_VENDA_CAB), MONTH(DATA_VENDA_CAB);";
+}
+//print $sql;
+$stmt    = $conexao->prepare($sql);
+$vendas  = array();
+if ($stmt->execute()) {
+	if ($stmt->rowCount() > 0) {
+		while ($rs = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$vendas[] = $rs;
+		}
+	}
+}
+$ano = 0;
+$primeiroAno = 0;
+if(sizeOf($vendas) > 0){
+	$lastEl = array_values(array_slice($vendas, -1))[0];
+	$ano = ($lastEl["YEAR(DATA_VENDA_CAB)"] - $vendas[0]['YEAR(DATA_VENDA_CAB)']);
+	$primeiroAno = $vendas[0]['YEAR(DATA_VENDA_CAB)'];
+}
+$mes = array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+//var_dump($primeiroAno);
