@@ -26,12 +26,6 @@
         <thead>
             <tr>
                 <th>Fornecedor</th>
-                <th>CNPJ</th>
-                <th>CPF</th>
-                <th>Inscrição estadual</th>
-                <th>Tipo</th>
-                <th>Endereço</th>
-                <th>Bairro</th>
                 <th>Cidade</th>
                 <th>UF</th>
                 <th>CEP</th>
@@ -49,12 +43,6 @@
                     ?>
                     <tr>
                         <td><?php echo $fornecedor->NOME_FORNECEDOR; ?></td>
-                        <td><?php echo $fornecedor->CNPJ_FORNECEDOR; ?></td>
-                        <td><?php echo $fornecedor->CPF_FORNECEDOR; ?></td>
-                        <td><?php echo $fornecedor->INSCRICAOESTADUAL_FORNECEDOR; ?></td>
-                        <td><?php echo $fornecedor->TIPO_FORNECEDOR; ?></td>
-                        <td><?php echo $fornecedor->NDERECO_FORNECEDOR_7; ?></td>
-                        <td><?php echo $fornecedor->BAIRRO_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->CIDADE_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->UF_FORNECEDOR; ?></td>
                         <td><?php echo $fornecedor->CEP_FORNECEDOR; ?></td>
