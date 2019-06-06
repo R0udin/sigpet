@@ -125,4 +125,8 @@ class VendasController extends Controller
         $vendas = venda::destroy($id);
         return $this->listar();
     }
+	public function relatoriosvenda()
+    {
+      return $this->view('gradeRelatorios');
+    }
 }
