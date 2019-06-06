@@ -26,15 +26,8 @@
         <thead>
             <tr>
                 <th>Cliente</th>
-                <th>CPF</th>
-                <th>RG</th>
-                <th>Data de nascimento</th>
-                <th>Data do cadastro</th>
                 <th>Telefone</th>
                 <th>Email</th>
-                <th>Tipo do cliente</th>
-                <th>CNPJ</th>
-                <th>Referencia</th>
                 <th>Celular</th>
 
             </tr>
@@ -47,15 +40,8 @@
                     ?>
                     <tr>
                         <td><?php echo $cliente->NOME_CLIENTE; ?></td>
-                        <td><?php echo $cliente->CPF_CLIENTE; ?></td>
-                        <td><?php echo $cliente->RG_CLIENTE; ?></td>
-                        <td><?php echo $cliente->DT_NASCIMENTO; ?></td>
-                        <td><?php echo $cliente->DT_CADASTRO; ?></td>
                         <td><?php echo $cliente->TELEFONE; ?></td>
                         <td><?php echo $cliente->EMAIL; ?></td>
-                        <td><?php echo $cliente->TIPO_CLIENTE; ?></td>
-                        <td><?php echo $cliente->CNPJ_CLIENTE; ?></td>
-                        <td><?php echo $cliente->REFERENCIA_CLIENTE; ?></td>
                         <td><?php echo $cliente->CELULAR; ?></td>
                         <td>
                           <a href="?controller=ClientesController&method=relatorio&id=<?php echo $cliente->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
