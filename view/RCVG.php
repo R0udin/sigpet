@@ -12,9 +12,9 @@ require 'index.php';
           <table width="778" border="0" align="center" cellspacing="30">
             <tr>
               <th scope="col">DATA INICIAL:
-                <input type="text" name="DATAINI" size="10" /></th>
+                <input type="month" name="DATAINI" size="10" /></th>
               <th scope="col">DATA FINAL:
-                <input type="text" name="DATAFIN" size="10" />
+                <input type="month" name="DATAFIN" size="10" />
               </th>
     <th scope="col">VENDEDOR:<select name="VENDEDOR">
 		<option value='' selected>Selecione um funcionário</option>
@@ -34,7 +34,7 @@ require 'index.php';
 </select></th>
 
 <!--BOTAO BUSCAR-->
-<input type="submit" name="buscar" value="Buscar" />
+<input type="submit" class="btn btn-success" name="buscar" value="Buscar" />
 
 
             </tr>
