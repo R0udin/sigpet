@@ -42,7 +42,7 @@
                 echo isset($produto->CRITICO) ? $produto->CRITICO : null;
                 ?>" />
             </div>
-		<input type="hidden" name="FOR_ID" id="FOR_ID" value="<?php echo isset($produtos[0]->ID) ? $produtos[0]->ID : null; ?>" />
+		<input type="hidden" name="FOR_ID" id="FOR_ID" value="<?php echo isset($produtos[0]->id) ? $produtos[0]->id : null; ?>" />
              <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">Fornecedor:</label>
                 <?php
@@ -65,7 +65,8 @@
             </div>
 		
             <div class="card-footer">
-                    <input type="hidden" name="id" id="id" value="<?php echo isset($cliente->id) ? $cliente->id : null; ?>" />
+		    <input type="hidden" name="id" id="id" value="<?php echo isset($fornecedor->id) ? $fornecedor->id : null; ?>" />
+		    <input type="hidden" name="id" id="id" value="<?php echo isset($cliente->id) ? $cliente->id : null; ?>" />
                     <button class="btn btn-success" type="submit">Salvar</button>
                     <button class="btn btn-secondary">Limpar</button>
                     <a class="btn btn-danger" href="?controller=ProdutosController&method=listar">Cancelar</a>
