@@ -43,7 +43,7 @@
                 ?>" />
             </div>
              <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Cliente:</label>
+                <label class="col-sm-2 col-form-label text-right">Fornecedor:</label>
                 <?php
                 //var_dump($vendas->ID);
 					if(isset($produtos)){
@@ -52,10 +52,10 @@
                     if (isset($fornecedores)){
 						echo "<select id='fornecedor' name='fornecedor'>";
 						  foreach($fornecedores as $fornecedores){
-							if(isset($clienteSelected) && $clienteSelected == $cliente->id){
-								echo "<option value='".$fornecedores->id."'selected>".$cliente->NOME_FORNECEDOR."</option>";
+							if(isset($clienteSelected) && $clienteSelected == $fornecedores->id){
+								echo "<option value='".$fornecedores->id."'selected>".$fornecedores->NOME_FORNECEDOR."</option>";
 							}else{
-								echo "<option value='".$fornecedores->id."'>".$cliente->NOME_FORNECEDOR."</option>";
+								echo "<option value='".$fornecedores->id."'>".$fornecedores->NOME_FORNECEDOR."</option>";
 							}
 						  }
 						echo "</select>";
