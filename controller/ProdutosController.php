@@ -32,7 +32,8 @@ class ProdutosController extends Controller
     {
         $id      = (int) $dados['id'];
         $produto = Produto::find($id);
-        return $this->view('formProduto', ['produto' => $produto]);
+        $fornecedores = Produto::findFornecedor();
+        return $this->view('formProduto', ['produto' => $produto],['fornecedores' => $fornecedores]);
     }
     public function relatorio($dados)
     {
