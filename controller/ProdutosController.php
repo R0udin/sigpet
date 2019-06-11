@@ -22,7 +22,8 @@ class ProdutosController extends Controller
      */
     public function criar()
     {
-        return $this->view('formProduto');
+        $fornecedores = Venda::findFornecedor();
+        return $this->view('formProduto', ['fornecedores' => $fornecedores]);
     }
     /**
      * Mostrar formulário para editar um cliente
