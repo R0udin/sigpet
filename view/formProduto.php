@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="?controller=ProdutosController&<?php echo isset($produto->id) ? isset($produtos[0]->id) ? "method=atualizar&id={$produto->id :: $produtos[0]->id}" : "method=salvar"; ?>" method="post" >
+    <form action="?controller=ProdutosController&<?php echo isset($produto->id) ? isset($produtos[0]->id) ? "method=atualizar&id={$produto->id}" : "method=salvar"; ?>" method="post" >
         <div class="card" style="top:40px">
             <div class="card-header">
                 <span class="card-title">Produtos</span>
