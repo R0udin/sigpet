@@ -62,11 +62,6 @@
                     }else{echo 'Fornecedores nao encontrados';}
                 ?>
             </div>
-            <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Fornecedor:</label>
-                <input type="text" class="form-control col-sm-8" name="FORNECEDORE_ID" id="FORNECEDORE_ID" value="<?php
-                echo isset($produto->FORNECEDORE_ID) ? $produto->FORNECEDORE_ID : null;
-                ?>" />
             <div class="card-footer">
                     <input type="hidden" name="id" id="id" value="<?php echo isset($cliente->id) ? $cliente->id : null; ?>" />
                     <button class="btn btn-success" type="submit">Salvar</button>
