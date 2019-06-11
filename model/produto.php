@@ -132,6 +132,26 @@ class Produto
         }
         return false;
     }
+        public static function findFornecedor()
+    {
+        $conexao = Conexao::getInstance();
+        $stmt    = $conexao->prepare("SELECT * FROM fornecedores");
+        if ($stmt->execute()) {
+            while ($rs = $stmt->fetchObject(Produto::class)) {
+                $result[] = $rs;
+            }
+        }
+        if (count($result) > 0) {
+            return $result;
+        }
+        return false;
+    }
+    /**
+     * Destruir um recurso
+     * @param type $id
+     * @return boolean
+     */
+
     /**
      * Destruir um recurso
      * @param type $id
