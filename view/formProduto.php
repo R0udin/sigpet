@@ -42,6 +42,26 @@
                 echo isset($produto->CRITICO) ? $produto->CRITICO : null;
                 ?>" />
             </div>
+             <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label text-right">Cliente:</label>
+                <?php
+                //var_dump($vendas->ID);
+					if(isset($produtos)){
+						$clienteSelected  = $produtos[0]->id;
+					}
+                    if (isset($fornecedores)){
+						echo "<select id='fornecedor' name='fornecedor'>";
+						  foreach($fornecedores as $fornecedores){
+							if(isset($clienteSelected) && $clienteSelected == $cliente->id){
+								echo "<option value='".$fornecedores->id."'selected>".$cliente->NOME_FORNECEDOR."</option>";
+							}else{
+								echo "<option value='".$fornecedores->id."'>".$cliente->NOME_FORNECEDOR."</option>";
+							}
+						  }
+						echo "</select>";
+                    }else{echo 'Fornecedores nao encontrados';}
+                ?>
+            </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">Fornecedor:</label>
                 <input type="text" class="form-control col-sm-8" name="FORNECEDORE_ID" id="FORNECEDORE_ID" value="<?php
