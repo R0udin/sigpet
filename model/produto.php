@@ -160,7 +160,7 @@ class Produto
         public static function destroy($id)
     {
         $conexao = Conexao::getInstance();
-        $q = $conexao->prepare("SELECT COUNT(1) FROM produtos WHERE id='{$id}'");
+        $q = $conexao->prepare("SELECT COUNT(1) FROM produtos WHERE id='{$id}';");
         if ($q->execute()) {
             $r=mysql_query($q);
             $row=mysql_fetch_row($r);
