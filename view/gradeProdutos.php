@@ -1,6 +1,6 @@
 <div class="container">
   <div class="section">
-    <h4>Procurar Funcionário</h4>
+    <h4>Procurar Produtos</h4>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
       <script>
       function myFunction() {
@@ -22,38 +22,36 @@
               }
             }
           </script>
+    </table>
     <table class="highlight" style="top:40px;" id="myTable">
         <thead>
             <tr>
-                <th>Funcionario</th>
-                <th>Função</th>
-                <th>Admissao</th>
-                <th>Nivel de acesso</th>
-                <th>Departamento</th>
-                <th>Email</th>
+                <th>Produto</th>
+                <th>Valor de compra</th>
+                <th>Valor de venda</th>
+                <th>Estoque</th>
 
-                <th><a href="?controller=FuncionariosController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
+
+                <th><a href="?controller=ProdutosController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
             </tr>
         </thead>
-        <h4>Funcionários</h4>
+        <h4>Produtos</h4>
         <tbody>
             <?php
-            if ($funcionarios) {
-                foreach ($funcionarios as $funcionario) {
+            if ($produtos) {
+                foreach ($produtos as $produto) {
                     ?>
                     <tr>
-                        <td><?php echo $funcionario->NOME_FUNCIONARIO; ?></td>
-                        <td><?php echo $funcionario->FUNCAO; ?></td>
-                        <td><?php echo $funcionario->ADMISSAO; ?></td>
-                        <td><?php echo $funcionario->ACESSO_TOTAL; ?></td>
-                        <td><?php echo $funcionario->DEPARTAMENTO_ID; ?></td>
-                        <td><?php echo $funcionario->EMAIL; ?></td>
+                        <td><?php echo $produto->DESCRICAO; ?></td>
+                        <td><?php echo $produto->VALOR_COMPRA; ?></td>
+                        <td><?php echo $produto->VALOR_VENDA; ?></td>
+                        <td><?php echo $produto->ESTOQUE; ?></td>
                         <td>
-                          <a href="?controller=FuncionariosController&method=relatorio&id=<?php echo $funcionario->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                          <a href="?controller=ProdutosController&method=relatorio&id=<?php echo $produto->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
                         </td>
                         <td>
-                            <a href="?controller=FuncionariosController&method=editar&id=<?php echo $funcionario->id; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=FuncionariosController&method=excluir&id=<?php echo $funcionario->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            <a href="?controller=ProdutosController&method=editar&id=<?php echo $produto->id; ?>" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="?controller=ProdutosController&method=excluir&id=<?php echo $produto->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
                         </td>
                     </tr>
                     <?php
