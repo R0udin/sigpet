@@ -103,15 +103,15 @@
                 echo isset($produto->VALOR_VENDA) ? $produto->VALOR_VENDA : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION[isset($produto->VALOR_VENDA])){
-								echo "value='".$_SESSION[isset($produto->VALOR_VENDA]."'";
-								unset($_SESSION[isset($produto->VALOR_VENDA]);
+							if(!empty($_SESSION[isset($produto->VALOR_VENDA)])){
+								echo "value='".$_SESSION[isset($produto->VALOR_VENDA)]."'";
+								unset($_SESSION[isset($produto->VALOR_VENDA)]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION[isset($produto->VALOR_VENDA])){
-								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->VALOR_VENDA]."</p>";
-								unset($_SESSION[isset($produto->VALOR_VENDA]);
+							if(!empty($_SESSION[isset($produto->VALOR_VENDA)])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->VALOR_VENDA)]."</p>";
+								unset($_SESSION[isset($produto->VALOR_VENDA)]);
 							}
                 ?>
             </div>
@@ -147,7 +147,7 @@
 						 <?php
 							if(!empty($_SESSION[isset($produto->CRITICO)])){
 								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->CRITICO)]."</p>";
-								unset($_SESSION[isset($produto->CRITICO)]);
+								unset($_SESSION[]);
 							}
                 ?>
             </div>
