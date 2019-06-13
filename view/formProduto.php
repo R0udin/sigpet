@@ -19,7 +19,7 @@
     }
     ?>
 
-    <form action="?controller=ProdutosController&<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) isset($produto->id) ? "method=atualizar&id={$produto->id}" : "method=salvar"; ?>" method="post" >
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> ?controller=ProdutosController&<?php echo isset($produto->id) ? "method=atualizar&id={$produto->id}" : "method=salvar"; ?>" method="post" >
 	<div class="card" style="top:40px">
             <div class="card-header">
                 <span class="card-title">Produtos</span>
