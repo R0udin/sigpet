@@ -53,7 +53,7 @@
 								echo "value='".$_SESSION['value_FOR_ID']."'";
 								unset($_SESSION['value_FOR_ID']);
 							}
-						 ?>	>
+						 ?>	
 						 <?php
 							if(!empty($_SESSION['vazio_FOR_ID'])){
 								echo "<p style='color: #f00; '>".$_SESSION['vazio_FOR_ID']."</p>";
@@ -71,7 +71,7 @@
 								echo "value='".$_SESSION['value_DESCRICAO']."'";
 								unset($_SESSION['value_DESCRICAO']);
 							}
-						 ?>	>
+						 ?>	
 						 <?php
 							if(!empty($_SESSION['vazio_DESCRICAO'])){
 								echo "<p style='color: #f00; '>".$_SESSION['vazio_DESCRICAO']."</p>";
@@ -89,7 +89,7 @@
 								echo "value='".$_SESSION['value_VALOR_COMPRA']."'";
 								unset($_SESSION['value_VALOR_COMPRA']);
 							}
-						 ?>	>
+						 ?>	
 						 <?php
 							if(!empty($_SESSION['vazio_VALOR_COMPRA'])){
 								echo "<p style='color: #f00; '>".$_SESSION['vazio_VALOR_COMPRA']."</p>";
@@ -107,7 +107,7 @@
 								echo "value='".$_SESSION['value_VALOR_VENDA']."'";
 								unset($_SESSION['value_VALOR_VENDA']);
 							}
-						 ?>	>
+						 ?>	
 						 <?php
 							if(!empty($_SESSION['vazio_VALOR_VENDA'])){
 								echo "<p style='color: #f00; '>".$_SESSION['vazio_VALOR_VENDA']."</p>";
@@ -125,7 +125,7 @@
 								echo "value='".$_SESSION['value_ESTOQUE']."'";
 								unset($_SESSION['value_ESTOQUE']);
 							}
-						 ?>	>
+						 ?>	
 						 <?php
 							if(!empty($_SESSION['vazio_ESTOQUE'])){
 								echo "<p style='color: #f00; '>".$_SESSION['vazio_ESTOQUE']."</p>";
@@ -143,7 +143,7 @@
 								echo "value='".$_SESSION['value_CRITICO']."'";
 								unset($_SESSION['value_CRITICO']);
 							}
-						 ?>	>
+						 ?>	
 						 <?php
 							if(!empty($_SESSION['vazio_CRITICO'])){
 								echo "<p style='color: #f00; '>".$_SESSION['vazio_CRITICO']."</p>";
