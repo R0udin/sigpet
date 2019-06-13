@@ -159,20 +159,19 @@ class Produto
      */ 
            public static function destroy($id)
      {
-        $message = 'Este produto está vinculado a uma venda.';
         $conexao = Conexao::getInstance();
         $stmt = $conexao->prepare("SELECT * FROM venda_dets WHERE `PRODUTO_ID`='{$id}';");
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) 
             {
-                alert('$message');
+                $this->error_message = 'Este produto está vinculado a uma venda.';
                 return false;
             }else{
                 if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) 
                 {
                     return true;
                 }
-                alert('$message');
+                $this->error_message = 'Este produto está vinculado a uma venda.';
                 return false;
             }
         }
