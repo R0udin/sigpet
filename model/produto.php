@@ -157,12 +157,38 @@ class Produto
      * @param type $id
      * @return boolean
      */
-    public static function destroy($id)
+public static function AntesDel($id)
     {
         $conexao = Conexao::getInstance();
-        if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
-            return true;
+        if ($conexao->exec("SELECT COUNT(1) FROM venda_dets WHERE `PRODUTO_ID`='{$id}'"))
+        {
+            $q= $conexao->exec("SELECT COUNT(1) FROM venda_dets WHERE `PRODUTO_ID`='{$id}'");
+            $r=mysql_query($q);
+            $row=mysql_fetch_row($r);
+            if($row[0] = 0) 
+            {
+                return true;
+        } else 
+            {
+                return false;
+            }
         }
+
+        return false;
+    }
+    
+    public static function destroy($id)
+    {
+        
+        $conexao = Conexao::getInstance();
+        antesDel = new AntesDel($id);
+        if(antesDel){
+            if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
+            return true;
+            }
+            return false;
+            }
         return false;
     }
 }
+
