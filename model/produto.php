@@ -156,12 +156,23 @@ class Produto
      * Destruir um recurso
      * @param type $id
      * @return boolean
-     */ public static function destroy($id)
+     */ 
+        public static function destroy($id)
     {
         $conexao = Conexao::getInstance();
-        if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
+        $q = $conexao->prepare("SELECT COUNT(1) FROM produtos WHERE id='{$id}'");
+        if ($q->execute()) {
+            $r=mysql_query($q);
+            $row=mysql_fetch_row($r);
+            //Now to check, we use an if() statement
+            if($row[0] = 0) {
+                if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
             return true;
-        }
+            }
+            return false;
+            }
+            } else {
         return false;
+        }
     }
 }
