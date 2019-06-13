@@ -25,6 +25,18 @@
                 ?>" />
             </div>
             <div class="form-group form-row">
+                <label for="CELULAR_FORNECEDOR" class="col-sm-2 col-form-label text-right">CPF:</label>
+                <input type="text" class="cpf form-control col-sm-8" name="CELULAR_FORNECEDOR" id="CELULAR_FORNECEDOR" value="<?php
+                echo isset($fornecedor->CELULAR_FORNECEDOR) ? $fornecedor->CELULAR_FORNECEDOR : null;
+                ?>" required/>
+            </div>
+            <div class="form-group form-row">
+                <label class="col-sm-2 col-form-label text-right">CPF:</label>
+                <input type="text" class="cpf form-control col-sm-8" name="TELEFONE_FORNECEDOR" id="TELEFONE_FORNECEDOR" value="<?php
+                echo isset($fornecedor->TELEFONE_FORNECEDOR) ? $fornecedor->TELEFONE_FORNECEDOR : null;
+                ?>" />
+            </div>
+            <div class="form-group form-row">
                 <label for="INSCRICAOESTADUAL_FORNECEDOR" class="col-sm-2 col-form-label text-right">Inscrição estadual:</label>
                 <input type="text" class="InscricaoEstadual form-control col-sm-8" name="INSCRICAOESTADUAL_FORNECEDOR" id="INSCRICAOESTADUAL_FORNECEDOR" value="<?php
                 echo isset($fornecedor->INSCRICAOESTADUAL_FORNECEDOR) ? $fornecedor->INSCRICAOESTADUAL_FORNECEDOR : null;
@@ -68,7 +80,7 @@
             </div>
             <div class="form-group form-row">
                 <label for="EMAIL_FORNECEDOR" class="col-sm-2 col-form-label text-right">Email:</label>
-                <input type="email" class="form-control col-sm-8" name="EMAIL_FORNECEDOR" id="EMAIL_FORNECEDOR" value="<?php
+                <input type="text" class="form-control col-sm-8" name="EMAIL_FORNECEDOR" id="EMAIL_FORNECEDOR" value="<?php
                 echo isset($fornecedor->EMAIL_FORNECEDOR) ? $fornecedor->EMAIL_FORNECEDOR : null;
                 ?>" required/>
             </div>
