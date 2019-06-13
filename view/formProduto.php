@@ -51,7 +51,7 @@
 						$clienteSelected  = $produtos[0]->id;
 					}
                     if (isset($fornecedores)){
-						echo "<select id='fornecedor' name='fornecedor'>";
+						echo "<select id='FORNECEDORE_ID' name='FORNECEDORE_ID'>";
 						  foreach($fornecedores as $fornecedores){
 							if(isset($clienteSelected) && $clienteSelected == $fornecedores->id){
 								echo "<option value='".$fornecedores->id."'selected>".$fornecedores->NOME_FORNECEDOR."</option>";
@@ -63,7 +63,6 @@
                     }else{echo 'Fornecedores nao encontrados';}
                 ?>
             </div>
-	  <input type="hidden" class="form-control col-sm-8" name="FORNECEDORE_ID" id="FORNECEDORE_ID" value="<?php echo $clienteSelected; ?>" />
 
             <div class="card-footer">
 		    <input type="hidden" name="id" id="id" value="<?php echo isset($fornecedor->id) ? $fornecedor->id : null; ?>" />
