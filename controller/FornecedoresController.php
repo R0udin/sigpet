@@ -54,7 +54,7 @@ class FornecedoresController extends Controller
         $fornecedor->NDERECO_FORNECEDOR_7    = $this->request->NDERECO_FORNECEDOR_7;
         $fornecedor->BAIRRO_FORNECEDOR    = $this->request->BAIRRO_FORNECEDOR;
         $fornecedor->CIDADE_FORNECEDOR    = $this->request->CIDADE_FORNECEDOR;
-        $fornecedor->UF_FORNECEDOR    = $this->request->CEP_FORNECEDOR;
+        $fornecedor->UF_FORNECEDOR    = $this->request->UF_FORNECEDOR;
         $fornecedor->CEP_FORNECEDOR    = $this->request->CEP_FORNECEDOR;
         $fornecedor->EMAIL_FORNECEDOR    = $this->request->EMAIL_FORNECEDOR;
         $fornecedor->TELEFONE_FORNECEDOR    = $this->request->TELEFONE_FORNECEDOR;
@@ -79,7 +79,7 @@ class FornecedoresController extends Controller
         $fornecedor->NDERECO_FORNECEDOR_7    = $this->request->NDERECO_FORNECEDOR_7;
         $fornecedor->BAIRRO_FORNECEDOR    = $this->request->BAIRRO_FORNECEDOR;
         $fornecedor->CIDADE_FORNECEDOR    = $this->request->CIDADE_FORNECEDOR;
-        $fornecedor->UF_FORNECEDOR    = $this->request->CEP_FORNECEDOR;
+        $fornecedor->UF_FORNECEDOR    = $this->request->UF_FORNECEDOR;
         $fornecedor->CEP_FORNECEDOR    = $this->request->CEP_FORNECEDOR;
         $fornecedor->EMAIL_FORNECEDOR    = $this->request->EMAIL_FORNECEDOR;
         $fornecedor->TELEFONE_FORNECEDOR    = $this->request->TELEFONE_FORNECEDOR;
