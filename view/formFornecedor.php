@@ -68,7 +68,7 @@
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">Email:</label>
-                <input type="text" class="form-control col-sm-8" name="EMAIL_FORNECEDOR" id="EMAIL_FORNECEDOR" value="<?php
+                <input type="email" class="form-control col-sm-8" name="EMAIL_FORNECEDOR" id="EMAIL_FORNECEDOR" value="<?php
                 echo isset($fornecedor->EMAIL_FORNECEDOR) ? $fornecedor->EMAIL_FORNECEDOR : null;
                 ?>" />
             </div>
