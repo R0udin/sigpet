@@ -137,7 +137,7 @@ class Fornecedor
      * @param type $id
      * @return boolean
      */
-       public static function destroy($id)
+     public static function destroy($id)
      { 
         $conexao = Conexao::getInstance();
         $stmt = $conexao->prepare("SELECT * FROM produtos WHERE `FORNECEDORE_ID`='{$id}';");
@@ -153,4 +153,5 @@ class Fornecedor
                 return false;
             }
         }
-        
+     }
+}
