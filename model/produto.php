@@ -162,10 +162,9 @@ class Produto
         
         $conexao = Conexao::getInstance();
         if ($conexao->exec(
-            "DELETE FROM produtos 
-            WHERE NOT EXISTS(SELECT NULL
-            FROM venda_dets f
-            WHERE f.PRODUTO_ID = '{$id}')"))
+            "MERGE produtos
+            USING venda_dets ON produtos.id = venda_dets.id
+            WHEN NOT MATCHED BY SOURCE THEN DELETE FROM produtos WHERE id='{$id}';"))
         {
         return true;
         }
