@@ -1,6 +1,26 @@
 <div class="container">
-    <form action="?controller=ProdutosController&<?php echo isset($produto->id) ? "method=atualizar&id={$produto->id}" : "method=salvar"; ?>" method="post" >
-        <div class="card" style="top:40px">
+    <?php
+    // define variables and set to empty values
+    $name = $email = $gender = $comment = $website = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $pid = test_input($_POST["FOR_ID"]);
+      $pnome = test_input($_POST["DESCRICAO"]);
+      $pwebsite = test_input($_POST["VALOR_COMPRA"]);
+      $pcomment = test_input($_POST["VALOR_VENDA"]);
+      $pgender = test_input($_POST["ESTOQUE"]);
+      $pgender = test_input($_POST["CRITICO"]);
+    }
+
+    function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+    ?>
+
+    <form action="?controller=ProdutosController&<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ? isset($produto->id) ? "method=atualizar&id={$produto->id}" : "method=salvar"; ?>" method="post" >
+	<div class="card" style="top:40px">
             <div class="card-header">
                 <span class="card-title">Produtos</span>
             </div>
