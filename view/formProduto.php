@@ -19,7 +19,7 @@
                 <label for="DESCRICAO" class="col-sm-2 col-form-label text-right">Descrição do produto:</label>
                 <input type="text" class="form-control col-sm-8" name="DESCRICAO" id="DESCRICAO" value="<?php
                 echo isset($produto->DESCRICAO) ? $produto->DESCRICAO : null;
-                ?>" />
+                ?>" required/>
             </div>
             <div class="form-group form-row">
                 <label for="VALOR_COMPRA" class="col-sm-2 col-form-label text-right">Valor de compra:</label>
