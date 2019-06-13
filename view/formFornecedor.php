@@ -25,13 +25,13 @@
                 ?>" />
             </div>
             <div class="form-group form-row">
-                <label for="CELULAR_FORNECEDOR" class="col-sm-2 col-form-label text-right">CPF:</label>
+                <label for="CELULAR_FORNECEDOR" class="col-sm-2 col-form-label text-right">Celular:</label>
                 <input type="text" class="cpf form-control col-sm-8" name="CELULAR_FORNECEDOR" id="CELULAR_FORNECEDOR" value="<?php
                 echo isset($fornecedor->CELULAR_FORNECEDOR) ? $fornecedor->CELULAR_FORNECEDOR : null;
                 ?>" required/>
             </div>
             <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">CPF:</label>
+                <label class="col-sm-2 col-form-label text-right">Telefone Fixo:</label>
                 <input type="text" class="cpf form-control col-sm-8" name="TELEFONE_FORNECEDOR" id="TELEFONE_FORNECEDOR" value="<?php
                 echo isset($fornecedor->TELEFONE_FORNECEDOR) ? $fornecedor->TELEFONE_FORNECEDOR : null;
                 ?>" />
