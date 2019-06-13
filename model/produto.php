@@ -169,5 +169,6 @@ class Produto
             }
         }
         return false;
+        }
     }
 }
