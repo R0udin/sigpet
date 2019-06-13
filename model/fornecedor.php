@@ -137,12 +137,19 @@ class Fornecedor
      * @param type $id
      * @return boolean
      */
-    public static function destroy($id)
-    {
+       public static function destroy($id)
+     { 
         $conexao = Conexao::getInstance();
-        if ($conexao->exec("DELETE FROM fornecedores WHERE id='{$id}';")) {
-            return true;
-        }
-        return false;
-    }
-}
+        $stmt = $conexao->prepare("SELECT * FROM produtos WHERE `FORNECEDORE_ID`='{$id}';");
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() > 0) 
+            {
+                return false;
+            }else{
+                if ($conexao->exec("DELETE FROM fornecedores WHERE id='{$id}';")) 
+                {
+                    return true;
+                }
+                return false;
+            }
+        
