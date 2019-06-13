@@ -161,7 +161,7 @@ class Produto
     {
         
         $conexao = Conexao::getInstance();
-        if ($conexao->exec("DELETE FROM produtos a WHERE NOT EXISTS (SELECT '{$id}' FROM venda_dets b WHERE a.id = b. PRODUTO_ID);")) {
+        if ($conexao->exec("DELETE FROM produtos a WHERE NOT EXISTS (SELECT '{$id}' FROM venda_dets b WHERE a.id = b.PRODUTO_ID);")) {
         return true;
         }
         return false;
