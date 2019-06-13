@@ -157,18 +157,21 @@ class Produto
      * @param type $id
      * @return boolean
      */ 
-       public static function destroy($id)
-    {
+           public static function destroy($id)
+     {
         $conexao = Conexao::getInstance();
         $stmt = $conexao->prepare("SELECT * FROM venda_dets WHERE `PRODUTO_ID`='{$id}';");
         if ($stmt->execute()) {
-            if ($stmt->rowCount() = 0) {
-                if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
+            if ($stmt->rowCount() > 0) 
+            {
+                return false;
+            }else{
+                if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) 
+                {
                     return true;
                 }
+                return false;
             }
-        }
-        return false;
         }
     }
 }
