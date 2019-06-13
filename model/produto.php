@@ -157,22 +157,18 @@ class Produto
      * @param type $id
      * @return boolean
      */ 
-        public static function destroy($id)
+       public static function destroy($id)
     {
         $conexao = Conexao::getInstance();
-        $q = $conexao->prepare("SELECT COUNT(1) FROM produtos WHERE id='{$id}';");
-        if ($q->execute()) {
-            $r=mysql_query($q);
-            $row=mysql_fetch_row($r);
-            //Now to check, we use an if() statement
-            if($row[0] = 0) {
+        $stmt = $conexao->prepare("SELECT * FROM venda_dets WHERE `PRODUTO_ID`='{$id}';");
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() = 0) {
                 if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
-            return true;
+                return true;
+                }
+                return false;
+                }
+                
             }
-            return false;
-            }
-            } else {
-        return false;
         }
-    }
 }
