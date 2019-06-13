@@ -164,14 +164,12 @@ class Produto
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) 
             {
-                echo alert("Este Produto está vinculado a uma venda.");
                 return false;
             }else{
                 if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) 
                 {
                     return true;
                 }
-                echo alert("Este Produto está vinculado a uma venda.");
                 return false;
             }
         }
