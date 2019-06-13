@@ -159,6 +159,7 @@ class Produto
      */ 
            public static function destroy($id)
      {
+        private $error_message = '';       
         $conexao = Conexao::getInstance();
         $stmt = $conexao->prepare("SELECT * FROM venda_dets WHERE `PRODUTO_ID`='{$id}';");
         if ($stmt->execute()) {
