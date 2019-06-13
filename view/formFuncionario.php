@@ -46,7 +46,7 @@
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">EMAIL do funcionário:</label>
-                <input type="text" class="form-control col-sm-8" name="EMAIL" id="EMAIL" value="<?php
+                <input type="email" class="form-control col-sm-8" name="EMAIL" id="EMAIL" value="<?php
                 echo isset($funcionario->EMAIL) ? $funcionario->EMAIL : null;
                 ?>" />
             </div>
