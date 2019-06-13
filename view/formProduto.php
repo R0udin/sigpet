@@ -147,7 +147,7 @@
 						 <?php
 							if(!empty($_SESSION[isset($produto->CRITICO)])){
 								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->CRITICO)]."</p>";
-								unset($_SESSION[]);
+								unset($_SESSION[isset($produto->CRITICO)]);
 							}
                 ?>
             </div>
