@@ -16,36 +16,34 @@
                 ?>" required/>
             </div>
             <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Descrição do produto:</label>
+                <label for="DESCRICAO" class="col-sm-2 col-form-label text-right">Descrição do produto:</label>
                 <input type="text" class="form-control col-sm-8" name="DESCRICAO" id="DESCRICAO" value="<?php
                 echo isset($produto->DESCRICAO) ? $produto->DESCRICAO : null;
                 ?>" />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Valor de compra:</label>
+                <label for="VALOR_COMPRA" class="col-sm-2 col-form-label text-right">Valor de compra:</label>
                 <input type="text" class="form-control col-sm-8" name="VALOR_COMPRA" id="VALOR_COMPRA" value="<?php
                 echo isset($produto->VALOR_COMPRA) ? $produto->VALOR_COMPRA : null;
-                ?>" />
+                ?>" required/>
             </div>
             <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Valor de venda:</label>
+                <label for="VALOR_VENDA" class="col-sm-2 col-form-label text-right">Valor de venda:</label>
                 <input type="text" class="form-control col-sm-8" name="VALOR_VENDA" id="VALOR_VENDA" value="<?php
                 echo isset($produto->VALOR_VENDA) ? $produto->VALOR_VENDA : null;
-                ?>" />
+                ?>" required/>
             </div>
             <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Estoque:</label>
+                <label for="ESTOQUE" class="col-sm-2 col-form-label text-right">Estoque:</label>
                 <input type="text" class="form-control col-sm-8" name="ESTOQUE" id="ESTOQUE" value="<?php
                 echo isset($produto->ESTOQUE) ? $produto->ESTOQUE : null;
-                ?>" />
+                ?>" required/>
             </div>
             <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Criticidade:</label>
+                <label for="CRITICO" class="col-sm-2 col-form-label text-right">Criticidade:</label>
                 <input type="text" class="form-control col-sm-8" name="CRITICO" id="CRITICO" value="<?php
                 echo isset($produto->CRITICO) ? $produto->CRITICO : null;
-                ?>" />
+                ?>" required/>
             </div>
 		<input type="hidden" name="FOR_ID" id="FOR_ID" value="<?php echo isset($produtos[0]->id) ? $produtos[0]->id : null; ?>" />
              <div class="form-group form-row">
