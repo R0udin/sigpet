@@ -156,15 +156,16 @@ class Produto
      * Destruir um recurso
      * @param type $id
      * @return boolean
-     */ public static function destroy($id)
-    {
+     */ 
+      public static function destroy($id)
+        {
         
         $conexao = Conexao::getInstance();
         if ($conexao->exec(
-            "IF NOT EXISTS (SELECT * FROM produtos.id WHERE venda_dets.PRODUTO_ID = '{$id}')
-                BEGIN
-                    DELETE FROM produtos WHERE id='{$id}';
-                END "))
+            "DELETE FROM produtos 
+            WHERE NOT EXISTS(SELECT NULL
+            FROM venda_dets f
+            WHERE f.PRODUTO_ID = '{$id}')"))
         {
         return true;
         }
