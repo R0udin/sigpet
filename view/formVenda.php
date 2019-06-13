@@ -86,7 +86,7 @@
             </div>
             <div class="form-group form-row">
                 <label class="col-sm-2 col-form-label text-right">Valor de compra:</label>
-                <input type="text" class="form-control col-sm-8" name="VALOR_COMPRA" id="VALOR_COMPRA" value=0 />
+                <input type="text" readonly class="form-control col-sm-8" name="VALOR_COMPRA" id="VALOR_COMPRA" value=0 />
 			<!--
             </div>
             <div class="form-group form-row">
