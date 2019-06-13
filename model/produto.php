@@ -156,30 +156,12 @@ class Produto
      * Destruir um recurso
      * @param type $id
      * @return boolean
-     */ 
-      public static function destroy($id)
-        {
-        
+     */ public static function destroy($id)
+    {
         $conexao = Conexao::getInstance();
-        if ($conexao->exec(
-            "MERGE produtos
-            USING venda_dets ON produtos.id = venda_dets.id
-            WHEN NOT MATCHED BY SOURCE THEN DELETE FROM produtos WHERE id='{$id}';"))
-        {
-        return true;
+        if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
+            return true;
         }
         return false;
-        }
-/**
-*
-*        public static function destroy($id)
-*    {
-*        
-*        $conexao = Conexao::getInstance();
-*        if ($conexao->exec("DELETE FROM produtos a WHERE NOT EXISTS (SELECT '{$id}' FROM venda_dets b WHERE a.id = b.PRODUTO_ID);")) {
-*        return true;
-*        }
-*        return false;
-*}
-*/
+    }
 }
