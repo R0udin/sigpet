@@ -63,7 +63,8 @@
                     }else{echo 'Fornecedores nao encontrados';}
                 ?>
             </div>
-		
+	  <input type="hidden" class="form-control col-sm-8" name="FORNECEDORE_ID" id="FORNECEDORE_ID" value="<?php echo $clienteSelected; ?>" />
+
             <div class="card-footer">
 		    <input type="hidden" name="id" id="id" value="<?php echo isset($fornecedor->id) ? $fornecedor->id : null; ?>" />
 		    <input type="hidden" name="id" id="id" value="<?php echo isset($cliente->id) ? $cliente->id : null; ?>" />
