@@ -9,27 +9,27 @@
 				var pCRITICO = formcontato.CRITICO.value;
 
 				if(pFOR_ID == ""){
-					alert("Campo nome é obrigatorio");
+					alert("Campo é obrigatorio");
 					formcontato.FOR_ID.focus();
 					return false;
 				}if(pDESCRICAO == ""){
-					alert("Campo nome é obrigatorio");
+					alert("Campo é obrigatorio");
 					formcontato.DESCRICAO.focus();
 					return false;
 				}if(pVALOR_COMPRA == ""){
-					alert("Campo nome é obrigatorio");
+					alert("Campo é obrigatorio");
 					formcontato.VALOR_COMPRA.focus();
 					return false;
 				}if(pVALOR_VENDA == ""){
-					alert("Campo nome é obrigatorio");
+					alert("Campo é obrigatorio");
 					formcontato.VALOR_VENDA.focus();
 					return false;
 				}if(pESTOQUE == ""){
-					alert("Campo nome é obrigatorio");
+					alert("Campo é obrigatorio");
 					formcontato.ESTOQUE.focus();
 					return false;
 				}if(pCRITICO == ""){
-					alert("Campo nome é obrigatorio");
+					alert("Campo é obrigatorio");
 					formcontato.CRITICO.focus();
 					return false;
 				}
@@ -49,15 +49,15 @@
                 echo isset($produto->FOR_ID) ? $produto->FOR_ID : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION['value_FOR_ID'])){
-								echo "value='".$_SESSION['value_FOR_ID']."'";
-								unset($_SESSION['value_FOR_ID']);
+							if(!empty($_SESSION[isset($produto->FOR_ID)])){
+								echo "value='".$_SESSION[isset($produto->FOR_ID)]."'";
+								unset($_SESSION[isset($produto->FOR_ID)]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION['vazio_FOR_ID'])){
-								echo "<p style='color: #f00; '>".$_SESSION['vazio_FOR_ID']."</p>";
-								unset($_SESSION['vazio_FOR_ID']);
+							if(!empty($_SESSION[isset($produto->FOR_ID)])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->FOR_ID)]."</p>";
+								unset($_SESSION[isset($produto->FOR_ID)]);
 							}
                 ?>
             </div>
@@ -67,15 +67,15 @@
                 echo isset($produto->DESCRICAO) ? $produto->DESCRICAO : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION['value_DESCRICAO'])){
-								echo "value='".$_SESSION['value_DESCRICAO']."'";
-								unset($_SESSION['value_DESCRICAO']);
+							if(!empty($_SESSION[isset($produto->DESCRICAO)])){
+								echo "value='".$_SESSION[isset($produto->DESCRICAO)]."'";
+								unset($_SESSION[isset($produto->DESCRICAO)]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION['vazio_DESCRICAO'])){
-								echo "<p style='color: #f00; '>".$_SESSION['vazio_DESCRICAO']."</p>";
-								unset($_SESSION['vazio_DESCRICAO']);
+							if(!empty($_SESSION[isset($produto->DESCRICAO)])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->DESCRICAO)]."</p>";
+								unset($_SESSION[isset($produto->DESCRICAO)]);
 							}
                 ?>
             </div>
@@ -85,15 +85,15 @@
                 echo isset($produto->VALOR_COMPRA) ? $produto->VALOR_COMPRA : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION['value_VALOR_COMPRA'])){
-								echo "value='".$_SESSION['value_VALOR_COMPRA']."'";
-								unset($_SESSION['value_VALOR_COMPRA']);
+							if(!empty($_SESSION[isset($produto->VALOR_COMPRA)])){
+								echo "value='".$_SESSION[isset($produto->VALOR_COMPRA)]."'";
+								unset($_SESSION[isset($produto->VALOR_COMPRA)]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION['vazio_VALOR_COMPRA'])){
-								echo "<p style='color: #f00; '>".$_SESSION['vazio_VALOR_COMPRA']."</p>";
-								unset($_SESSION['vazio_VALOR_COMPRA']);
+							if(!empty($_SESSION[isset($produto->VALOR_COMPRA)])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->VALOR_COMPRA)]."</p>";
+								unset($_SESSION[isset($produto->VALOR_COMPRA)]);
 							}
                 ?>
             </div>
@@ -103,15 +103,15 @@
                 echo isset($produto->VALOR_VENDA) ? $produto->VALOR_VENDA : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION['value_VALOR_VENDA'])){
-								echo "value='".$_SESSION['value_VALOR_VENDA']."'";
-								unset($_SESSION['value_VALOR_VENDA']);
+							if(!empty($_SESSION[isset($produto->VALOR_VENDA])){
+								echo "value='".$_SESSION[isset($produto->VALOR_VENDA]."'";
+								unset($_SESSION[isset($produto->VALOR_VENDA]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION['vazio_VALOR_VENDA'])){
-								echo "<p style='color: #f00; '>".$_SESSION['vazio_VALOR_VENDA']."</p>";
-								unset($_SESSION['vazio_VALOR_VENDA']);
+							if(!empty($_SESSION[isset($produto->VALOR_VENDA])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->VALOR_VENDA]."</p>";
+								unset($_SESSION[isset($produto->VALOR_VENDA]);
 							}
                 ?>
             </div>
@@ -121,15 +121,15 @@
                 echo isset($produto->ESTOQUE) ? $produto->ESTOQUE : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION['value_ESTOQUE'])){
-								echo "value='".$_SESSION['value_ESTOQUE']."'";
-								unset($_SESSION['value_ESTOQUE']);
+							if(!empty($_SESSION[isset($produto->ESTOQUE)])){
+								echo "value='".$_SESSION[isset($produto->ESTOQUE)]."'";
+								unset($_SESSION[isset($produto->ESTOQUE)]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION['vazio_ESTOQUE'])){
-								echo "<p style='color: #f00; '>".$_SESSION['vazio_ESTOQUE']."</p>";
-								unset($_SESSION['vazio_ESTOQUE']);
+							if(!empty($_SESSION[isset($produto->ESTOQUE)])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->ESTOQUE)]."</p>";
+								unset($_SESSION[isset($produto->ESTOQUE)]);
 							}
                 ?>
             </div>
@@ -139,15 +139,15 @@
                 echo isset($produto->CRITICO) ? $produto->CRITICO : null;
                 ?>" />
                 <?php
-							if(!empty($_SESSION['value_CRITICO'])){
-								echo "value='".$_SESSION['value_CRITICO']."'";
-								unset($_SESSION['value_CRITICO']);
+							if(!empty($_SESSION[isset($produto->CRITICO)])){
+								echo "value='".$_SESSION[isset($produto->CRITICO)]."'";
+								unset($_SESSION[isset($produto->CRITICO)]);
 							}
 						 ?>	
 						 <?php
-							if(!empty($_SESSION['vazio_CRITICO'])){
-								echo "<p style='color: #f00; '>".$_SESSION['vazio_CRITICO']."</p>";
-								unset($_SESSION['vazio_CRITICO']);
+							if(!empty($_SESSION[isset($produto->CRITICO)])){
+								echo "<p style='color: #f00; '>".$_SESSION[isset($produto->CRITICO)]."</p>";
+								unset($_SESSION[isset($produto->CRITICO)]);
 							}
                 ?>
             </div>
