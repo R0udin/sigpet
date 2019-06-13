@@ -162,13 +162,17 @@ class Produto
         $conexao = Conexao::getInstance();
         $stmt = $conexao->prepare("SELECT * FROM venda_dets WHERE `PRODUTO_ID`='{$id}';");
         if ($stmt->execute()) {
-            if ($stmt->rowCount() = 0) {
+            if ($stmt->rowCount() > 0) {
+                return false;
+                
+            }else{
                 if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';")) {
                 return true;
                 }
                 return false;
                 }
-                
             }
+        return false;
         }
+        
 }
