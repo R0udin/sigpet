@@ -163,8 +163,7 @@ class Produto
         $stmt = $conexao->prepare("SELECT * FROM venda_dets WHERE `PRODUTO_ID`='{$id}';");
         if ($stmt->execute()) {
             if ($stmt->rowCount() = 0) {
-               $resultado = $conexao->exec("DELETE FROM produtos WHERE id='{$id}';");
-                if ($resultado) {
+                if ($conexao->exec("DELETE FROM produtos WHERE id='{$id}';") {
                     return true;
                 }
             }
