@@ -74,7 +74,7 @@
             </div>
             <div class="card-footer">
                 <input type="hidden" name="id" id="id" value="<?php echo isset($fornecedor->id) ? $fornecedor->id : null; ?>" />
-                <a class="btn btn-danger" href="?controller=FornecedoresController&method=relatorio">Voltar</a>
+                <a class="btn btn-danger" href="?controller=FornecedoresController&method=relFor">Voltar</a>
             </div>
         </div>
     </form>
