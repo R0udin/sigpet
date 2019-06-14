@@ -49,9 +49,6 @@
                         <td><?php echo $funcionario->DEPARTAMENTO_ID; ?></td>
                         <td><?php echo $funcionario->EMAIL; ?></td>
                         <td>
-                          <a href="?controller=FuncionariosController&method=relatorio&id=<?php echo $funcionario->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
-                        </td>
-                        <td>
                             <a href="?controller=FuncionariosController&method=editar&id=<?php echo $funcionario->id; ?>" class="btn btn-primary btn-sm">Editar</a>
                             <a href="?controller=FuncionariosController&method=excluir&id=<?php echo $funcionario->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
                         </td>
