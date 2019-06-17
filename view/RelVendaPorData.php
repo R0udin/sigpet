@@ -1,5 +1,5 @@
 <?php
-ini_set( "display_errors", 0); 
+ini_set( "display_errors", 0);
   $con = mysqli_connect('us-cdbr-iron-east-03.cleardb.net','b91118ec66dcf8','8ed6f6be','heroku_87bfe723a0b6070');
   if(isset($_POST['executar']))
   {
@@ -114,7 +114,7 @@ where vc.DATA_VENDA_CAB between '$DataInicio' and '$DataFim' order by vc.DATA_VE
     <?php
       if($count == "0")
       {
-        echo '<h2>Pesquisa Invalida</h2>';
+        echo '<h5>Pesquisa Invalida</h2>';
       }
       else{
           while($row = mysqli_fetch_array($query)){

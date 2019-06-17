@@ -23,18 +23,17 @@
             }
           </script>
     </table>
-    <table class="highlight" style="top:40px;" id="myTable">
+    <table class="row-border dataTable no-footer centered highlight" role="grid" style="margin-left: 0px; width: 900px;" width="100%" cellspacing="0" id="myTable">
         <thead>
             <tr>
                 <th>Cliente</th>
                 <th>Telefone</th>
                 <th>Email</th>
                 <th>Celular</th>
-                
-                <th><a href="?controller=ClientesController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
+
+                <th><a href="?controller=ClientesController&method=criar" class="btn-floating btn-medium waves-effect waves-light grey"><i class="material-icons">add</i></a></th>
             </tr>
         </thead>
-        <h4>Clientes</h4>
         <tbody>
             <?php
             if ($clientes) {
@@ -45,10 +44,10 @@
                         <td><?php echo $cliente->TELEFONE; ?></td>
                         <td><?php echo $cliente->EMAIL; ?></td>
                         <td><?php echo $cliente->CELULAR; ?></td>
-                        <td><a href="?controller=ClientesController&method=relatorio&id=<?php echo $cliente->id; ?>" class="btn btn-primary btn-sm">Visualizar</a></td>
+                        <td><a href="?controller=ClientesController&method=relatorio&id=<?php echo $cliente->id; ?>" class="btn-floating  btn-small grey"><i class="material-icons">remove_red_eye</i></a>
                         <td>
-                            <a href="?controller=ClientesController&method=editar&id=<?php echo $cliente->id; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=ClientesController&method=excluir&id=<?php echo $cliente->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            <a href="?controller=ClientesController&method=editar&id=<?php echo $cliente->id; ?>" class="btn-floating  btn-small grey" ><i class="material-icons">edit</a></i>
+                            <a href="?controller=ClientesController&method=excluir&id=<?php echo $cliente->id; ?>" class="btn-floating  btn-small red" ><i class="material-icons">delete_forever</a></i>
                         </td>
                     </tr>
                     <?php

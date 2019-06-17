@@ -137,7 +137,7 @@ class Venda
         $stmt    = $conexao->prepare("SELECT a.*,
         b.NOME_CLIENTE, c.DESCRICAO_PAGAMT FROM heroku_87bfe723a0b6070.venda_cabs as a
         LEFT JOIN heroku_87bfe723a0b6070.clientes as b ON a.CLIENTE_ID = b.id
-        LEFT JOIN heroku_87bfe723a0b6070.tipo_pagamentos as c on a.TIPO_PAGAMENTO_ID = c.ID;");
+        LEFT JOIN heroku_87bfe723a0b6070.tipo_pagamentos as c on a.TIPO_PAGAMENTO_ID = c.ID order by a.DATA_VENDA_CAB desc;");
         $result  = array();
         if ($stmt->execute()) {
             while ($rs = $stmt->fetchObject(Venda::class)) {

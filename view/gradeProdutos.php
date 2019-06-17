@@ -23,37 +23,40 @@
             }
           </script>
     </table>
-    <table class="highlight" style="top:40px;" id="myTable">
+    <table class="row-border dataTable no-footer centered highlight" role="grid" style="margin-left: 0px; width: 900px;" width="100%" cellspacing="0" id="myTable">
         <thead>
             <tr>
                 <th>Produto</th>
+                <th>Descrição</th>
                 <th>Valor de compra</th>
                 <th>Valor de venda</th>
                 <th>Estoque</th>
 
 
-                <th><a href="?controller=ProdutosController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
+                <th><a href="?controller=ProdutosController&method=criar" class="btn-floating btn-medium waves-effect waves-light grey"><i class="material-icons">add</i></a></th>
             </tr>
         </thead>
-        <h4>Produtos</h4>
         <tbody>
             <?php
             if ($produtos) {
                 foreach ($produtos as $produto) {
                     ?>
                     <tr>
+                        <td><?php echo $produto->FOR_ID; ?></td>
                         <td><?php echo $produto->DESCRICAO; ?></td>
-                        <td><?php echo $produto->VALOR_COMPRA; ?></td>
-                        <td><?php echo $produto->VALOR_VENDA; ?></td>
+                        <td>R$ <?php echo $produto->VALOR_COMPRA; ?></td>
+                        <td>R$ <?php echo $produto->VALOR_VENDA; ?></td>
                         <td><?php echo $produto->ESTOQUE; ?></td>
                         <td>
-                          <a href="?controller=ProdutosController&method=relatorio&id=<?php echo $produto->id; ?>" class="btn btn-primary btn-sm">Visualizar</a>
+                          <a href="?controller=ProdutosController&method=relatorio&id=<?php echo $produto->id; ?>"  class="btn-floating  btn-small grey"><i class="material-icons">remove_red_eye</i></a>
                         </td>
                         <td>
-                            <a href="?controller=ProdutosController&method=editar&id=<?php echo $produto->id; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=ProdutosController&method=excluir&id=<?php echo $produto->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            <a href="?controller=ProdutosController&method=editar&id=<?php echo $produto->id; ?>" class="btn-floating  btn-small grey" ><i class="material-icons">edit</a></i>
                         </td>
-                    </tr>
+                        <td>
+                            <a href="?controller=ProdutosController&method=excluir&id=<?php echo $produto->id; ?>" class="btn-floating  btn-small red" ><i class="material-icons">delete_forever</a></i>
+                        </td>
+                    </tr
                     <?php
                 }
             } else {

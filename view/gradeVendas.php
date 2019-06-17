@@ -21,19 +21,18 @@
         }
       </script>
 </table>
-<table class="highlight" style="top:40px;" id="myTable">
+<table class="row-border dataTable no-footer centered highlight" role="grid" style="margin-left: 0px; width: 900px;" width="100%" cellspacing="0" id="myTable">
       <thead>
           <tr>
               <th>Código da Venda</th>
               <th>Data da Venda</th>
-              <th>CLiente</th>
+              <th>Cliente</th>
               <th>Valor Total</th>
 
 
-              <th><a href="?controller=VendasController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
+              <th><a href="?controller=VendasController&method=criar" class="btn-floating btn-medium waves-effect waves-light grey"><i class="material-icons">add</i></a></th>
           </tr>
       </thead>
-      <h4>Vendas</h4>
         <tbody>
             <?php
             if ($vendas) {
@@ -43,10 +42,10 @@
                         <td><?php echo $venda->ID; ?></td>
                         <td><?php echo $venda->DATA_VENDA_CAB; ?></td>
                         <td><?php echo $venda->NOME_CLIENTE; ?></td>
-                        <td><?php echo $venda->VALOR_VENDA_CAB; ?></td>
+                        <td>R$ <?php echo $venda->VALOR_VENDA_CAB; ?></td>
                         <td>
-                            <a href="?controller=VendasController&method=editar&id=<?php echo $venda->ID; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=VendasController&method=excluir&id=<?php echo $venda->ID; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            <a href="?controller=VendasController&method=editar&id=<?php echo $venda->ID; ?>" class="btn-floating  btn-small grey" ><i class="material-icons">edit</a></i>
+                            <a href="?controller=VendasController&method=excluir&id=<?php echo $venda->ID; ?>" class="btn-floating  btn-small red" ><i class="material-icons">delete_forever</a></i>
                         </td>
                     </tr>
                     <?php

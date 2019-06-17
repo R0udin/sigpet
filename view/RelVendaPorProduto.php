@@ -106,7 +106,7 @@ where vd.PRODUTO_ID = '$select_produto' and vc.DATA_VENDA_CAB between '$DataInic
 						$result_niveis_acessos = "SELECT * FROM produtos";
 						$resultado_niveis_acesso = mysqli_query($con, $result_niveis_acessos);
 						while($row_niveis_acessos = mysqli_fetch_assoc($resultado_niveis_acesso)){ ?>
-							<option value="<?php echo $row_niveis_acessos['id']; ?>"><?php echo $row_niveis_acessos['DESCRICAO']; ?></option> <?php
+							<option value="<?php echo $row_niveis_acessos['id']; ?>"><?php echo $row_niveis_acessos['FOR_ID']; ?></option> <?php
 						}
 					?>
 				</select><br><br>

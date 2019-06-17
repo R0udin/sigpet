@@ -22,7 +22,7 @@
               }
             }
           </script>
-    <table class="highlight" style="top:40px;" id="myTable">
+    <table class="row-border dataTable no-footer centered highlight" role="grid" style="margin-left: 0px; width: 900px;" width="100%" cellspacing="0" id="myTable">
         <thead>
             <tr>
                 <th>Funcionario</th>
@@ -32,7 +32,7 @@
                 <th>Departamento</th>
                 <th>Email</th>
 
-                <th><a href="?controller=FuncionariosController&method=criar" class="btn btn-success btn-sm">Novo</a></th>
+                <th><a href="?controller=FuncionariosController&method=criar" class="btn-floating btn-medium waves-effect waves-light grey"><i class="material-icons">add</i></a></th>
             </tr>
         </thead>
         <h4>Funcionários</h4>
@@ -49,8 +49,8 @@
                         <td><?php echo $funcionario->DEPARTAMENTO_ID; ?></td>
                         <td><?php echo $funcionario->EMAIL; ?></td>
                         <td>
-                            <a href="?controller=FuncionariosController&method=editar&id=<?php echo $funcionario->id; ?>" class="btn btn-primary btn-sm">Editar</a>
-                            <a href="?controller=FuncionariosController&method=excluir&id=<?php echo $funcionario->id; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                            <a href="?controller=FuncionariosController&method=editar&id=<?php echo $funcionario->id; ?>" class="btn-floating  btn-small grey" ><i class="material-icons">edit</a></i>
+                            <a href="?controller=FuncionariosController&method=excluir&id=<?php echo $funcionario->id; ?>" class="btn-floating  btn-small red" ><i class="material-icons">delete_forever</a></i>
                         </td>
                     </tr>
                     <?php

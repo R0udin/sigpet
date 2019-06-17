@@ -12310,6 +12310,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       /**
        * Get Instance
        */
+       
 
     }, {
       key: "getInstance",

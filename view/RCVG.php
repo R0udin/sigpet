@@ -4,7 +4,7 @@ require 'index.php';
 ?>
 <div id="container">
   <div id="section">
-    <div class="container"> <img src="../images/other/subheader_pic.jpg" alt="" />
+    <div class="container">
       <div class="content">
         <h2>Relatório Comparativo de Vendas <strong>Gráfico</strong></h2>
         <div align="center">
@@ -54,32 +54,32 @@ require 'index.php';
     <div class="column wide">
       <h2>Tabela Vendas</h2>
       <table border=1>
-	  
+
 		<thead>
 			<tr >
 				<th colspan="13">Vendas</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
 		<?php
-		
+
 		if(count($vendas) == 0){
 			echo "<tr><td colspan=13 align='center'>Nenhum dado encontrado</td></tr>";
 		}
-		
+
 		?>
 			<tr>
 				<td>
 				</td>
-				<?php 	
+				<?php
 					for($i=0;$i<12;$i++){
 						echo "<td>$mes[$i]</td>";
-					} 
+					}
 				?>
 			</tr>
 			<?php
-			
+
 			for($i=0;$i<=$ano;$i++){
 				echo "<tr>";
 					$tabAno = $primeiroAno + $i;
@@ -100,7 +100,7 @@ require 'index.php';
 			?>
 
 		</tbody>
-		
+
 	  </table>
     </div>
     <!-- //.column -->
@@ -113,7 +113,7 @@ require 'index.php';
 <script type="text/javascript">
 
 var javascript_array = Array();
-<?php 
+<?php
 	if(count($vendas) != 0){
 		$js_array = json_encode($vendas);
 		echo "javascript_array = ". $js_array . ";\n";
@@ -156,12 +156,12 @@ for(j=1;j<=12;j++){
   google.charts.load('current', {'packages':['bar']});
   google.charts.setOnLoadCallback(drawChart);
 }
-  
+
   function drawChart() {
 	var data = google.visualization.arrayToDataTable(mainArray);
 
 	/*
-	
+
 	['Mês','2017','2018','2019'],
 	['Janeiro',12000,6000,0],
 	['Fevereiro',2000,0,0],
@@ -175,7 +175,7 @@ for(j=1;j<=12;j++){
 	['Outubro',0,0,6939],
 	['Novembro',0,0,20],
 	['Dezembro',0,0,16191]
-	
+
 	*/
 	var options = {
 		width: 900,
@@ -210,4 +210,3 @@ for(j=1;j<=12;j++){
 
     <!-- //.column -->
   </div>
-

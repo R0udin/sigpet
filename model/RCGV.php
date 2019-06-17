@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 require_once '../config/conexao.php';
 $conexao = Conexao::getInstance();
 $where = ' WHERE ';
@@ -11,7 +12,7 @@ if($_GET['VENDEDOR'] != ''){
 if($_GET['CLIENTE'] != ''){
 	$addCliente = "CLIENTE_ID = ".$_GET['CLIENTE'];
 	if($where != " WHERE "){
-		$where .= " and ".$addCliente;  
+		$where .= " and ".$addCliente;
 	}else{
 		$where .= $addCliente;
 	}
@@ -41,7 +42,7 @@ if($addDataini != '' && $addDatafin == ''){
 }
 if($addData != ''){
 	if($where != " WHERE "){
-		$where .= " and ".$addData;  
+		$where .= " and ".$addData;
 	}else{
 		$where .= $addData;
 	}

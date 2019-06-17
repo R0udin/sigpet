@@ -15,7 +15,8 @@ class ProdutosController extends Controller
     public function relProduto()
     {
         $produtos = Produto::all();
-        return $this->view('RelProdutos', ['produtos' => $produtos]);
+        $fornecedores = Produto::findFornecedor();
+        return $this->view('RelProdutos', ['produtos' => $produtos], ['fornecedores' => $fornecedores]);
     }
     /**
      * Mostrar formulario para criar um novo cliente

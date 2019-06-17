@@ -1,7 +1,7 @@
 
 <div class="container">
-    <form action="?controller=VendasController&<?php echo isset($vendas[0]->ID) ? "method=atualizar&id={$vendas[0]->ID}" : "method=salvar"; ?>" method="post" >
-        <div class="card" style="top:40px">
+    <form class="was-validated col s12" action="?controller=VendasController&<?php echo isset($vendas[0]->ID) ? "method=atualizar&id={$vendas[0]->ID}" : "method=salvar"; ?>" method="post" >
+        <div class="card" style="top:70px">
             <div class="card-header">
                 <span class="card-title">Vendas</span>
             </div>
@@ -43,7 +43,7 @@
 								if ($produtos){
 									echo "<option disabled selected value> -- select an option -- </option>";
 								  foreach($produtos as $produto){
-									echo "<option value=".$produto->id.">".$produto->DESCRICAO."</option>";
+									echo "<option value=".$produto->id.">".$produto->FOR_ID."</option>";
 									echo "<span id='".$produto->id."' value=".$produto->ESTOQUE." hidden></span>";
 								  }
 								}else{echo 'Produtos não encontrados';}
@@ -69,7 +69,7 @@
 							<select id='qtproduto'></select>
 						</td>
 						<td>
-							<input type="button" class="btn" id="incluir" value="Incluir" onclick="incluirTab();">
+							<a type="button" class="btn-floating" id="incluir" value="Incluir" onclick="incluirTab();"><i class="material-icons">add_shopping_cart</i></a>
 						</td>
 					</tr>
 				</table>
@@ -105,9 +105,8 @@
             <div class="form-group form-row">
             <div class="card-footer">
                     <input type="hidden" name="id" id="id" value="<?php echo isset($cliente->id) ? $cliente->id : null; ?>" />
-                    <button class="btn btn-success" type="submit">Salvar</button>
-                    <button class="btn btn-secondary">Limpar</button>
-                    <a class="btn btn-danger" href="?controller=VendasController&method=listar">Cancelar</a>
+                    <button class="waves-effect waves-light btn-small" type="submit"><i class="material-icons right">check_box</i>Finalizar</button>
+                    <a class="waves-effect waves-light btn-small red" href="?controller=VendasController&method=listar"><i class="material-icons right">cancel</i>Cancelar</a>
             </div>
 
         </div>

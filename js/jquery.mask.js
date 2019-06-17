@@ -604,8 +604,8 @@
 }, window.jQuery, window.Zepto));
 $('.telefone').mask('(00) 0000-0000');
 $('.celular').mask('(00) 0 0000-0000');
-$('.dinheiro').mask('#.##0,00', {reverse: true});
-$('.dinheiro2').mask('#.##0.00', {reverse: true});
+$('.dinheiro').mask('###0,00', {reverse: true});
+$('.dinheiro2').mask('###0.00', {reverse: true});
 $('.estado').mask('AA');
 $('.rg').mask('00000000');
 $('.cpf').mask('000-000.000-00');

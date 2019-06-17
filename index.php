@@ -47,7 +47,7 @@ if(isset($_POST['but_logout'])){
               <li><a href="view/index.php?controller=ClientesController&method=listar">Clientes</a></li>
               <li><a href="view/index.php?controller=FuncionariosController&method=listar">Funcionários</a></li>
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
-              <li><input type="submit" class="waves-effect waves-light btn-small" class="white-text" value="Logout" name="but_logout"></li>
+              <li><input type="submit" class="waves-effect waves-teal btn-flat" value="sair" name="but_logout"></a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
               <li><a href="#">Navbar Link</a></li>
@@ -66,7 +66,7 @@ if(isset($_POST['but_logout'])){
                 <h5 class="header col s12 light"><b></b></h5>
               </div>
               <div class="row center">
-                <a href="view/index.php?controller=VendasController&method=criar" class="waves-effect waves-light btn-large"><i class="material-icons right">monetization_on</i>Realizar venda</a>
+                <a href="view/index.php?controller=VendasController&method=criar" class="waves-effect waves-light btn-large pulse"><i class="material-icons right">local_grocery_store</i>Realizar venda</a>
               </div>
               <br><br>
 
@@ -79,75 +79,114 @@ if(isset($_POST['but_logout'])){
 
             <!--   Icon Section   -->
             <div class="row">
-              <div class="col s12 m4">
-                <div class="icon-block">
-                  <h2 class="center brown-text"><i class="material-icons">show_chart</i></h2>
-                  <h5 class="center">Relatórios de venda</h5>
-
-                  <p class="light">Espaço destinado para os Relatórios do sistema.</p>
-                </div>
+              <div class="col s4 m4">
+                <div class="card small">
+        <div class="card-image">
+          <img src="produtos.jpg">
+          <span class="card-title white-text text-lighten-2">Produtos</span>
+        </div>
+        <div class="card-content">
+          <p>Cadastrar um novo produto.</p>
+        </div>
+        <div class="card-action">
+          <a href="view/index.php?controller=ProdutosController&method=criar">Cadastrar</a>
+        </div>
+      </div>
               </div>
 
 
-              <div class="col s12 m4">
-                <div class="icon-block">
-                  <h2 class="center brown-text"><i class="material-icons">multiline_chart</i></h2>
-                  <h5 class="center">Comparativos</h5>
-
-                  <p class="light">Espaço destinado para os Relatórios do sistema.</p>
-                </div>
+              <div class="col s4 m4">
+                <div class="card small">
+        <div class="card-image">
+          <img src="kitten-4257631_960_720.jpg">
+          <span class="card-title white-text text-lighten-2">Clientes</span>
+        </div>
+        <div class="card-content">
+          <p>Cadastrar um novo cliente</p>
+        </div>
+        <div class="card-action">
+          <a href="view/index.php?controller=ClientesController&method=criar">Cadastrar</a>
+        </div>
+      </div>
               </div>
 
-              <div class="col s12 m4">
-                <div class="icon-block">
-                  <h2 class="center brown-text"><i class="material-icons">attach_money</i></h2>
-                  <h5 class="center">Finanças</h5>
-
-                  <p class="light">Espaço destinado para os Relatórios do sistema.</p>
-                </div>
+              <div class="col s4 m4">
+                <div class="card small">
+        <div class="card-image">
+          <img src="document-3271743_960_720.jpg">
+          <span class="card-title white-text text-lighten-2">Vendas</span>
+        </div>
+        <div class="card-content">
+          <p>Relação de vendas realizadas</p>
+        </div>
+        <div class="card-action">
+          <a href="view/index.php?controller=VendasController&method=listar">Relação de vendas</a>
+        </div>
+      </div>
               </div>
             </div>
 
           </div>
         </div>
 
-
-        <div class="parallax-container valign-wrapper">
-          <div class="section no-pad-bot">
-            <div class="container">
-              <div class="row center">
-                <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-              </div>
-            </div>
-          </div>
-          <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
-        </div>
 
         <div class="container">
           <div class="section">
 
             <div class="row">
-              <div class="col s12 center">
-                <h3><i class="mdi-content-send brown-text"></i></h3>
-                <h4>Contact Us</h4>
-                <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+              <div class="col s4 m4">
+                <div class="card small">
+        <div class="card-image">
+          <img src="graficos.jpg">
+          <span class="card-title green-text text-lighten-0">Gráfico de vendas</span>
+        </div>
+        <div class="card-content">
+          <p>Gráfico relacionado às vendas realizadas.</p>
+        </div>
+        <div class="card-action">
+          <a href="view/RCVG.php">Visualizar</a>
+        </div>
+      </div>
+              </div>
+
+
+              <div class="col s4 m4">
+                <div class="card small">
+        <div class="card-image">
+          <img src="office.jpg">
+          <span class="card-title white-text text-lighten-2">Relatório de vendas</span>
+        </div>
+        <div class="card-content">
+          <p>Relatório de vendas por Funcionário</p>
+        </div>
+        <div class="card-action">
+          <a href="view/RelVendaPorVendedor.php">Relação por Funcionário</a>
+        </div>
+      </div>
+              </div>
+
+              <div class="col s4 m4">
+                <div class="card small">
+        <div class="card-image">
+          <img src="business-3190209_1920.jpg">
+          <span class="card-title white-text text-lighten-2">Relatório de vendas</span>
+        </div>
+        <div class="card-content">
+          <p>Relatório de vendas por Data</p>
+        </div>
+        <div class="card-action">
+          <a href="view/RelVendaPorVendedor.php">Relação de vendas</a>
+        </div>
+      </div>
               </div>
             </div>
+
 
           </div>
         </div>
 
 
-        <div class="parallax-container valign-wrapper">
-          <div class="section no-pad-bot">
-            <div class="container">
-              <div class="row center">
-                <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-              </div>
-            </div>
-          </div>
-          <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
-        </div>
+
 
         <footer class="page-footer teal">
           <div class="container">

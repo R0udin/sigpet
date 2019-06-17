@@ -11,7 +11,6 @@ class VendasController extends Controller
         $vendas = Venda::all();
         return $this->view('gradeVendas', ['vendas' => $vendas]);
     }
-
     public function RelVenda()
     {
         $vendas = Venda::all();
@@ -37,7 +36,6 @@ class VendasController extends Controller
         $produtos = Venda::findproduto();
         return $this->view2('formVenda', [['vendas' => $vendas],['clientes' => $clientes],['produtos' => $produtos]]);
     }
-
     public function relatorio($dados)
     {
         $id      = (int) $dados['id'];
@@ -57,7 +55,6 @@ class VendasController extends Controller
         $vendas->ID     = $this->request->FOR_ID;
         $vendas->CLIENTE_ID     = $this->request->cliente;
 		$vendas->VALOR_VENDA_CAB = $this->request->VALOR_COMPRA;
-
 		//dados que vão pro venda_dets
 		$dadosproduto = $this->request->prod;
 		$dadosproduto = array_chunk($dadosproduto,5);
@@ -97,7 +94,6 @@ class VendasController extends Controller
         $vendas->ID     = $this->request->FOR_ID;
         $vendas->CLIENTE_ID     = $this->request->cliente;
 		$vendas->VALOR_VENDA_CAB = $this->request->VALOR_COMPRA;
-
 		//dados que vão pro venda_dets
 		$dadosproduto = $this->request->prod;
 		$dadosproduto = array_chunk($dadosproduto,5);

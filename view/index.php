@@ -12,7 +12,7 @@ spl_autoload_register(function($class) {
         return true;
     }
 });
-include "../config.php";
+require "../config.php";
 
 // Check user login or not
 if(!isset($_SESSION['uname'])){
@@ -46,7 +46,7 @@ if(isset($_POST['but_logout'])){
           <li><a href="?controller=VendasController&method=RelVenda">Vendas</a></li>
           <li><a href="RelatorioEstaticoVenda.php">Comparativo</a></li>
           <li><a href="?controller=VendasController&method=relatoriosvenda">Relativo de Vendas</a></li>
-          <li><a href="RCVG.php">Gráfico Comparativo de Vendas</a></li>  
+          <li><a href="RCVG.php">Gráfico Comparativo de Vendas</a></li>
         </ul>
         <form method='post' action="">
         <div class="navbar-fixed">
@@ -60,7 +60,7 @@ if(isset($_POST['but_logout'])){
               <li><a href="?controller=ClientesController&method=listar">Clientes</a></li>
               <li><a href="?controller=FuncionariosController&method=listar">Funcionários</a></li>
               <li><a class="dropdown-trigger" href="#!" data-target="rels">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
-              <li><input type="submit" class="waves-effect waves-light btn-small" class="white-text" value="Logout" name="but_logout"></li>
+              <li><input type="submit" class="waves-effect waves-teal btn-flat" value="sair" name="but_logout"><i class="material-icons right">power_settings_new</i></a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
               <li><a href="#">Navbar Link</a></li>
@@ -79,7 +79,7 @@ if(isset($_POST['but_logout'])){
                 <h5 class="header col s12 light"><b></b></h5>
               </div>
               <div class="row center">
-                <a href="?controller=VendasController&method=criar" class="waves-effect waves-light btn-large"><i class="material-icons right">monetization_on</i>Realizar venda</a>
+                <a href="?controller=VendasController&method=criar" class="waves-effect waves-light btn-large"><i class="material-icons right">local_grocery_store</i>Realizar venda</a>
               </div>
               <br><br>
 
