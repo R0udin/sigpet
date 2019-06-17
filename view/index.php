@@ -108,6 +108,9 @@ if(isset($_POST['but_logout'])){
             }
         }
         ?>
+</div>
+</div>
+
 
 
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -117,4 +120,5 @@ if(isset($_POST['but_logout'])){
         <script>$(".dropdown-trigger").dropdown();</script>
 
     </body>
+
 </html>

@@ -35,7 +35,6 @@
                 <th><a href="?controller=FuncionariosController&method=criar" class="btn-floating btn-medium waves-effect waves-light grey"><i class="material-icons">add</i></a></th>
             </tr>
         </thead>
-        <h4>Funcionários</h4>
         <tbody>
             <?php
             if ($funcionarios) {

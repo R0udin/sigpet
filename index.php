@@ -200,19 +200,16 @@ if(isset($_POST['but_logout'])){
               <div class="col l3 s12">
                 <h5 class="white-text">Configurações</h5>
                 <ul>
-                  <li><a class="white-text" href="#!">Link 1</a></li>
-                  <li><a class="white-text" href="#!">Link 2</a></li>
-                  <li><a class="white-text" href="#!">Link 3</a></li>
-                  <li><a class="white-text" href="#!">Link 4</a></li>
+                  <li><a class="white-text" href="https://github.com/ensinacomofaz/sigpet">Github</a></li>
+                  <li><a class="white-text" href="https://dashboard.heroku.com/apps/sigpet">Heroku</a></li>
                 </ul>
               </div>
               <div class="col l3 s12">
                 <h5 class="white-text">Administrativo</h5>
                 <ul>
-                  <li><a class="white-text" href="#!">Link 1</a></li>
-                  <li><a class="white-text" href="#!">Link 2</a></li>
-                  <li><a class="white-text" href="#!">Link 3</a></li>
-                  <li><a class="white-text" href="#!">Link 4</a></li>
+                  <li><a class="white-text" href="view/index.php?controller=FuncionariosController&method=listar">Usuários</a></li>
+                  <li><a class="white-text" href="view/index.php?controller=VendasController&method=listar">Vendas</a></li>
+                  <li><a class="white-text" href="view/RelVendaPorVendedor.php">Performance</a></li>
                 </ul>
               </div>
             </div>

@@ -2,7 +2,7 @@
     <form class="was-validated col s12" action="?controller=ClientesController&<?php echo isset($cliente->id) ? "method=atualizar&id={$cliente->id}" : "method=salvar"; ?>" method="post" >
         <div class="row" style="top:40px">
             <div class="card-header">
-                <h4 class="row-title">Cadastro de clientes</h4>
+                <h5 class="row-title">Cadastro de clientes</h5>
             </div>
             <div class="card-body">
             </div>

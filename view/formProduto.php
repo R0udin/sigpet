@@ -19,7 +19,7 @@ else {
     <form class="was-validated col s12" action="?controller=ProdutosController&<?php echo isset($produto->id) ? "method=atualizar&id={$produto->id}" : "method=salvar"; ?>" method="post" >
         <div class="row" style="top:40px">
             <div class="card-header">
-                <span class="card-title">Informe os dados do produto</span>
+                <h5 class="card-title">Informe os dados do produto</h5>
             </div>
             <div class="card-body">
             </div>
@@ -53,8 +53,9 @@ else {
                 echo isset($produto->ESTOQUE) ? $produto->ESTOQUE : null;
                 ?>" required/>
             </div>
+            <label>Criticidade</label>
             <span> <?php echo isset($produto->CRITICO); ?></span>
-            <div class="input-field col s12">
+            <div class="input-field col s12 m6">
               <select name="CRITICO">
                 <option value="" disabled selected>Selecione a criticidade do produto</option>
                 <option value="Alta" <?php echo isset($produto->CRITICO)=='Alta'?'selected' :''; ?> >Alta</option>
@@ -64,6 +65,7 @@ else {
             </div>
 
              <div class="form-group form-row">
+               <label>Fornecedor</label>
                 <select name="FORNECEDORE_ID">
           					<option>Escolha o fornecedor</option>
           					<?php

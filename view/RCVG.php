@@ -1,6 +1,6 @@
 <?php
 require '../model/RCGV.php';
-require 'index.php';
+require_once 'index.php';
 ?>
 <div id="container">
   <div id="section">
