@@ -138,7 +138,7 @@ if(isset($_POST['but_logout'])){
                 <div class="card small">
         <div class="card-image">
           <img src="graficos.jpg">
-          <span class="card-title green-text text-lighten-0">Gráfico de vendas</span>
+          <span class="card-title white-text text-darken-0">Gráfico de vendas</span>
         </div>
         <div class="card-content">
           <p>Gráfico relacionado às vendas realizadas.</p>

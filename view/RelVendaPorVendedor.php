@@ -1,5 +1,5 @@
 <?php
-ini_set( "display_errors", 0); 
+ini_set( "display_errors", 0);
   $con = mysqli_connect('us-cdbr-iron-east-03.cleardb.net','b91118ec66dcf8','8ed6f6be','heroku_87bfe723a0b6070');
   if(isset($_POST['executar']))
   {
@@ -63,7 +63,7 @@ where fu.id = '$select_vendedor' and vc.DATA_VENDA_CAB between '$DataInicio' and
               <li><a href="index.php?controller=ClientesController&method=listar">Clientes</a></li>
               <li><a href="index.php?controller=FuncionariosController&method=listar">Funcionários</a></li>
               <li><a class="dropdown-trigger" href="#!" data-target="rels">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
-              <li><input type="submit" class="waves-effect waves-light btn-small" class="white-text" value="Logout" name="but_logout"></li>
+              <li><input type="submit" class="waves-effect waves-teal btn-flat" value="sair" name="but_logout"></a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
               <li><a href="#">Navbar Link</a></li>

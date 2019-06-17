@@ -61,7 +61,7 @@ where vc.DATA_VENDA_CAB between '$DataInicio' and '$DataFim' order by vc.DATA_VE
               <li><a href="index.php?controller=ClientesController&method=listar">Clientes</a></li>
               <li><a href="index.php?controller=FuncionariosController&method=listar">Funcionários</a></li>
               <li><a class="dropdown-trigger" href="#!" data-target="rels">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
-              <li><input type="submit" class="waves-effect waves-light btn-small" class="white-text" value="Logout" name="but_logout"></li>
+              <li><input type="submit" class="waves-effect waves-teal btn-flat" value="sair" name="but_logout"></a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
               <li><a href="#">Navbar Link</a></li>
