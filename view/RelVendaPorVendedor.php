@@ -44,26 +44,26 @@ where fu.id = '$select_vendedor' and vc.DATA_VENDA_CAB between '$DataInicio' and
       <body>
         <ul id="dropdown1" class="dropdown-content">
           <li><a href="#!">Funcionários</a></li>
-          <li><a href="?controller=ProdutosController&method=relProduto">Produtos</a></li>
-          <li><a href="?controller=FornecedoresController&method=RelFor">Fornecedores</a></li>
-          <li><a href="?controller=ClientesController&method=RelCliente">Clientes</a></li>
-          <li><a href="?controller=VendasController&method=RelVenda">Vendas</a></li>
+          <li><a href="index.php?controller=ProdutosController&method=relProduto">Produtos</a></li>
+          <li><a href="index.php?controller=FornecedoresController&method=RelFor">Fornecedores</a></li>
+          <li><a href="index.php?controller=ClientesController&method=RelCliente">Clientes</a></li>
+          <li><a href="index.php?controller=VendasController&method=RelVenda">Vendas</a></li>
           <li><a href="RelatorioEstaticoVenda.php">Comparativo</a></li>
-          <li><a href="?controller=VendasController&method=relatoriosvenda">Relativo de Vendas</a></li>
+          <li><a href="index.php?controller=VendasController&method=relatoriosvenda">Relativo de Vendas</a></li>
           <li><a href="RCVG.php">Gráfico Comparativo de Vendas</a></li>
         </ul>
         <ul id="dropdown2" class="dropdown-content">
-          <li><a href="?controller=ProdutosController&method=criar"><i class="material-icons">shopping_basket</i>Produtos</a></li>
-          <li><a href="?controller=ProdutosController&method=criar"><i class="material-icons">local_shipping</i>Fornecedores</a></li>
-          <li><a href="?controller=ClientesController&method=criar"><i class="material-icons">face</i>Clientes</a></li>
-          <li><a href="?controller=FuncionariosController&method=criar"><i class="material-icons">assignment_ind</i>Funcionários</a></li>
+          <li><a href="index.php?controller=ProdutosController&method=criar"><i class="material-icons">shopping_basket</i>Produtos</a></li>
+          <li><a href="index.php?controller=ProdutosController&method=criar"><i class="material-icons">local_shipping</i>Fornecedores</a></li>
+          <li><a href="index.php?controller=ClientesController&method=criar"><i class="material-icons">face</i>Clientes</a></li>
+          <li><a href="index.php?controller=FuncionariosController&method=criar"><i class="material-icons">assignment_ind</i>Funcionários</a></li>
         </ul>
         <ul id="dropdown3" class="dropdown-content">
-          <li><a href="?controller=ProdutosController&method=listar"><i class="material-icons">shopping_basket</i>Produtos</a></li>
-          <li><a href="?controller=FornecedoresController&method=listar"><i class="material-icons">local_shipping</i>Fornecedores</a></li>
-          <li><a href="?controller=ClientesController&method=listar"><i class="material-icons">face</i>Clientes</a></li>
-          <li><a href="?controller=FuncionariosController&method=listar"><i class="material-icons">assignment_ind</i>Funcionários</a></li>
-          <li><a href="?controller=VendasController&method=listar"><i class="material-icons">local_grocery_store</i>Vendas</a></li>
+          <li><a href="index.php?controller=ProdutosController&method=listar"><i class="material-icons">shopping_basket</i>Produtos</a></li>
+          <li><a href="index.php?controller=FornecedoresController&method=listar"><i class="material-icons">local_shipping</i>Fornecedores</a></li>
+          <li><a href="index.php?controller=ClientesController&method=listar"><i class="material-icons">face</i>Clientes</a></li>
+          <li><a href="index.php?controller=FuncionariosController&method=listar"><i class="material-icons">assignment_ind</i>Funcionários</a></li>
+          <li><a href="index.php?controller=VendasController&method=listar"><i class="material-icons">local_grocery_store</i>Vendas</a></li>
         </ul>
         <form method='post' action="">
         <div class="navbar-fixed">
@@ -114,7 +114,7 @@ where fu.id = '$select_vendedor' and vc.DATA_VENDA_CAB between '$DataInicio' and
       <select name="select_vendedor">
 					<option>Escolha o vendedor</option>
 					<?php
-						$result_niveis_acessos = "SELECT * FROM funcionarios where FUNCAO = 'Vendedor'";
+						$result_niveis_acessos = "SELECT * FROM funcionarios";
 						$resultado_niveis_acesso = mysqli_query($con, $result_niveis_acessos);
 						while($row_niveis_acessos = mysqli_fetch_assoc($resultado_niveis_acesso)){ ?>
 							<option value="<?php echo $row_niveis_acessos['id']; ?>"><?php echo $row_niveis_acessos['NOME_FUNCIONARIO']; ?></option> <?php
