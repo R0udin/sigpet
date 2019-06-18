@@ -38,7 +38,7 @@ if(isset($_POST['but_logout'])){
       <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </header>
       <body>
-        <ul id="rels" class="dropdown-content">
+        <ul id="dropdown1" class="dropdown-content">
           <li><a href="#!">Funcionários</a></li>
           <li><a href="?controller=ProdutosController&method=relProduto">Produtos</a></li>
           <li><a href="?controller=FornecedoresController&method=RelFor">Fornecedores</a></li>
@@ -48,19 +48,29 @@ if(isset($_POST['but_logout'])){
           <li><a href="?controller=VendasController&method=relatoriosvenda">Relativo de Vendas</a></li>
           <li><a href="RCVG.php">Gráfico Comparativo de Vendas</a></li>
         </ul>
+        <ul id="dropdown2" class="dropdown-content">
+          <li><a href="?controller=ProdutosController&method=criar"><i class="material-icons">shopping_basket</i>Produtos</a></li>
+          <li><a href="?controller=ProdutosController&method=criar"><i class="material-icons">local_shipping</i>Fornecedores</a></li>
+          <li><a href="?controller=ClientesController&method=criar"><i class="material-icons">face</i>Clientes</a></li>
+          <li><a href="?controller=FuncionariosController&method=criar"><i class="material-icons">assignment_ind</i>Funcionários</a></li>
+        </ul>
+        <ul id="dropdown3" class="dropdown-content">
+          <li><a href="?controller=ProdutosController&method=listar"><i class="material-icons">shopping_basket</i>Produtos</a></li>
+          <li><a href="?controller=FornecedoresController&method=listar"><i class="material-icons">local_shipping</i>Fornecedores</a></li>
+          <li><a href="?controller=ClientesController&method=listar"><i class="material-icons">face</i>Clientes</a></li>
+          <li><a href="?controller=FuncionariosController&method=listar"><i class="material-icons">assignment_ind</i>Funcionários</a></li>
+          <li><a href="?controller=VendasController&method=listar"><i class="material-icons">local_grocery_store</i>Vendas</a></li>
+        </ul>
         <form method='post' action="">
         <div class="navbar-fixed">
           <nav class="white" role="navigation">
             <div class="nav-wrapper container">
-            <a href="../index.php" class="brand-logo"><i class="material-icons">pets</i>Sigpet</a>
+            <a href="../index.php" class="brand-logo"><i class="material-icons">pets</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="?controller=ProdutosController&method=listar">Produtos</a></li>
-              <li><a href="?controller=FornecedoresController&method=listar">Fornecedores</a></li>
-              <li><a href="?controller=VendasController&method=listar">Vendas</a></li>
-              <li><a href="?controller=ClientesController&method=listar">Clientes</a></li>
-              <li><a href="?controller=FuncionariosController&method=listar">Funcionários</a></li>
-              <li><a class="dropdown-trigger" href="#!" data-target="rels">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
-              <li><input type="submit" class="waves-effect waves-teal btn-flat" value="sair" name="but_logout"><i class="material-icons right">power_settings_new</i></a></li>
+              <<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Relatórios<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Cadastrar<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Relações<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><input type="submit" class="waves-effect waves-teal btn-flat" value="sair" name="but_logout"></a></li>
             </ul>
             <ul id="nav-mobile" class="sidenav">
               <li><a href="#">Navbar Link</a></li>
